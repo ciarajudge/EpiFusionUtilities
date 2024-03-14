@@ -1,0 +1,12 @@
+Package: EpiFusionUtilities
+Title: Useful functions for parsing the output of EpiFusion models
+Version: 0.0.1
+Authors@R: 
+    person("Ciara", "Judge", , "ciara.judge@lshtm.ac.uk", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-7923-9898"))
+Description: What the package does (one paragraph).
+License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
