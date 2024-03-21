@@ -1,12 +1,16 @@
 #' Load results from EpiFusion folder into an R object
 #' This function loads the result of an EpiFusion folder into an R list, with the key characteristics and results of the analysis included.
-#' 
+#'
 #' @param folderpath filepath to folder
 #' @return a list of R compatible EpiFusion output objects
 #' @export
 
-load_epifusion <- function(folderpath) {
-  filepaths <- list.files(folderpath)
-  num_chains <- length('likelihoods' %in% filepaths)
-  return(list(num_chains = num_chains))
+
+load_acceptance <- function(folderpath) {
+  filepaths <- list.files(folderpath, pattern = "acceptance")
+  acceptance <- list()
+  for (i in 1:length(filepaths)) {
+    acceptance[[paste0("Chain", as.character(i))]] <- read.table(paste0(folderpath, filepaths[i]), header = F)[,1]
+  }
+  return(acceptance)
 }
