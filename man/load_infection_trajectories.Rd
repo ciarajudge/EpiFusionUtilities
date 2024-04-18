@@ -2,8 +2,8 @@
 % Please edit documentation in R/load_infection_trajectories.R
 \name{load_infection_trajectories}
 \alias{load_infection_trajectories}
-\title{Load results from EpiFusion folder into an R object
-This function loads the result of an EpiFusion folder into an R list, with the key characteristics and results of the analysis included.}
+\title{Load infection trajectories from EpiFusion folder into an list of dataframes
+This function loads the infection trajectories of an EpiFusion analysis into a list of dataframes, with one dataframe for each chain in the analysis. The data frames are structured with ncol = number of days in the analysis, and nrow = number of MCMC samples.}
 \usage{
 load_infection_trajectories(folderpath)
 }
@@ -11,9 +11,9 @@ load_infection_trajectories(folderpath)
 \item{folderpath}{filepath to folder}
 }
 \value{
-a list of R compatible EpiFusion output objects
+a list of infection trajectory dataframes
 }
 \description{
-Load results from EpiFusion folder into an R object
-This function loads the result of an EpiFusion folder into an R list, with the key characteristics and results of the analysis included.
+Load infection trajectories from EpiFusion folder into an list of dataframes
+This function loads the infection trajectories of an EpiFusion analysis into a list of dataframes, with one dataframe for each chain in the analysis. The data frames are structured with ncol = number of days in the analysis, and nrow = number of MCMC samples.
 }

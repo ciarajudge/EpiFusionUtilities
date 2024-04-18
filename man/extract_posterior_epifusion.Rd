@@ -2,20 +2,20 @@
 % Please edit documentation in R/extract_posterior_epifusion.R
 \name{extract_posterior_epifusion}
 \alias{extract_posterior_epifusion}
-\title{Load results from EpiFusion folder into an R object
-This function loads the result of an EpiFusion folder into an R list, with the key characteristics and results of the analysis included.}
+\title{Parse results from raw EpiFusion object into a R object with infection, Rt and parameter posteriors
+This function discards the burn-in from the MCMC samples enclosed in a raw EpiFusion object. The posterior samples, and Rhat and ESS statistics for the parameters of the analysis, are stored in a list.}
 \usage{
 extract_posterior_epifusion(raw_epifusion, burn_in)
 }
 \arguments{
-\item{raw_epifusion}{filepath to folder}
+\item{raw_epifusion}{raw EpiFusion object}
 
-\item{burn_in}{proportion (as a decimal) of chains to discard as burn in}
+\item{burn_in}{proportion (as a decimal) of each chain to discard as burn in}
 }
 \value{
-a list of R compatible EpiFusion output objects
+a list of R compatible EpiFusion output objects with burnin discarded
 }
 \description{
-Load results from EpiFusion folder into an R object
-This function loads the result of an EpiFusion folder into an R list, with the key characteristics and results of the analysis included.
+Parse results from raw EpiFusion object into a R object with infection, Rt and parameter posteriors
+This function discards the burn-in from the MCMC samples enclosed in a raw EpiFusion object. The posterior samples, and Rhat and ESS statistics for the parameters of the analysis, are stored in a list.
 }

@@ -2,8 +2,8 @@
 % Please edit documentation in R/load_rt_trajectories.R
 \name{load_rt_trajectories}
 \alias{load_rt_trajectories}
-\title{Load results from EpiFusion folder into an R object
-This function loads the result of an EpiFusion folder into an R list, with the key characteristics and results of the analysis included.}
+\title{Load Rt trajectories from EpiFusion folder into an list of dataframes
+This function loads the Rt trajectories of an EpiFusion analysis into a list of dataframes, with one dataframe for each chain in the analysis. The data frames are structured with ncol = number of days in the analysis, and nrow = number of MCMC samples. The Rt is calculated using the sampled beta trajectory and gamma value from each MCMC step.}
 \usage{
 load_rt_trajectories(folderpath)
 }
@@ -11,9 +11,9 @@ load_rt_trajectories(folderpath)
 \item{folderpath}{filepath to folder}
 }
 \value{
-a list of R compatible EpiFusion output objects
+a list of Rt trajectory dataframes
 }
 \description{
-Load results from EpiFusion folder into an R object
-This function loads the result of an EpiFusion folder into an R list, with the key characteristics and results of the analysis included.
+Load Rt trajectories from EpiFusion folder into an list of dataframes
+This function loads the Rt trajectories of an EpiFusion analysis into a list of dataframes, with one dataframe for each chain in the analysis. The data frames are structured with ncol = number of days in the analysis, and nrow = number of MCMC samples. The Rt is calculated using the sampled beta trajectory and gamma value from each MCMC step.
 }

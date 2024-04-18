@@ -2,8 +2,8 @@
 % Please edit documentation in R/load_acceptance.R
 \name{load_acceptance}
 \alias{load_acceptance}
-\title{Load results from EpiFusion folder into an R object
-This function loads the result of an EpiFusion folder into an R list, with the key characteristics and results of the analysis included.}
+\title{Load acceptance rates from EpiFusion folder into an R object
+This function loads the acceptance rates for each chain of an EpiFusion analysis into a list of vectors.}
 \usage{
 load_acceptance(folderpath)
 }
@@ -11,9 +11,9 @@ load_acceptance(folderpath)
 \item{folderpath}{filepath to folder}
 }
 \value{
-a list of R compatible EpiFusion output objects
+a list of vectors of acceptance rates of each chain
 }
 \description{
-Load results from EpiFusion folder into an R object
-This function loads the result of an EpiFusion folder into an R list, with the key characteristics and results of the analysis included.
+Load acceptance rates from EpiFusion folder into an R object
+This function loads the acceptance rates for each chain of an EpiFusion analysis into a list of vectors.
 }
