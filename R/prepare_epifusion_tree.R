@@ -3,8 +3,6 @@
 #'
 #' @param tree phylogenetic tree (in S3 Phylo Object format)
 #' @return a tree (in S3 Phylo Object format)
-#' @importFrom ape read.tree
-#' @export
 
 
 prepare_epifusion_tree <- function(tree) {

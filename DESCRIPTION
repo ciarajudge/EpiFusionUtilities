@@ -13,5 +13,8 @@ Imports:
     HDInterval,
     ape,
     graphics,
-    stableGR
+    stableGR,
+    dplyr,
+    castor,
+    xml2
 License: GPL (>= 3) + file LICENSE
