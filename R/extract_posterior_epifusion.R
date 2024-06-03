@@ -63,22 +63,22 @@ extract_posterior_epifusion <- function(raw_epifusion, burn_in) {
     parameter_posterior[[parameters[i]]] <- list(samples = paramsamples, rhat = rhat, ess = ess)
   }
 
-  beta_trajectories <- raw_epifusion$beta_trajectories
-  beta_trajectory_posterior <- data.frame(matrix(0, nrow = 0, ncol = ncol(beta_trajectories[[1]])))
-  for (i in 1:length(beta_trajectories)) {
-    tmp <- beta_trajectories[[i]]
-    tmp <- tmp[discard:nrow(tmp),]
-    beta_trajectory_posterior <- rbind(beta_trajectory_posterior, tmp)
-  }
-  mean_beta_trajectory = colMeans(beta_trajectory_posterior)
-  HPD0.95 = list(Lower = HDInterval::hdi(beta_trajectory_posterior, 0.95)[1,], Upper = HDInterval::hdi(beta_trajectory_posterior, 0.95)[2,])
-  HPD0.88 = list(Lower = HDInterval::hdi(beta_trajectory_posterior, 0.88)[1,], Upper = HDInterval::hdi(beta_trajectory_posterior, 0.88)[2,])
-  HPD0.66 = list(Lower = HDInterval::hdi(beta_trajectory_posterior, 0.66)[1,], Upper = HDInterval::hdi(beta_trajectory_posterior, 0.66)[2,])
-  beta_trajectory_hpdintervals = list(HPD0.95 = HPD0.95,
-                                           HPD0.88 = HPD0.88,
-                                           HPD0.66 = HPD0.66)
-  beta_trajectories = list(mean_beta_trajectory = mean_beta_trajectory,
-                                beta_trajectory_hpdintervals = beta_trajectory_hpdintervals)
+  # beta_trajectories <- raw_epifusion$beta_trajectories
+  # beta_trajectory_posterior <- data.frame(matrix(0, nrow = 0, ncol = ncol(beta_trajectories[[1]])))
+  # for (i in 1:length(beta_trajectories)) {
+  #   tmp <- beta_trajectories[[i]]
+  #   tmp <- tmp[discard:nrow(tmp),]
+  #   beta_trajectory_posterior <- rbind(beta_trajectory_posterior, tmp)
+  # }
+  # mean_beta_trajectory = colMeans(beta_trajectory_posterior)
+  # HPD0.95 = list(Lower = HDInterval::hdi(beta_trajectory_posterior, 0.95)[1,], Upper = HDInterval::hdi(beta_trajectory_posterior, 0.95)[2,])
+  # HPD0.88 = list(Lower = HDInterval::hdi(beta_trajectory_posterior, 0.88)[1,], Upper = HDInterval::hdi(beta_trajectory_posterior, 0.88)[2,])
+  # HPD0.66 = list(Lower = HDInterval::hdi(beta_trajectory_posterior, 0.66)[1,], Upper = HDInterval::hdi(beta_trajectory_posterior, 0.66)[2,])
+  # beta_trajectory_hpdintervals = list(HPD0.95 = HPD0.95,
+  #                                          HPD0.88 = HPD0.88,
+  #                                          HPD0.66 = HPD0.66)
+  # beta_trajectories = list(mean_beta_trajectory = mean_beta_trajectory,
+  #                               beta_trajectory_hpdintervals = beta_trajectory_hpdintervals)
 
 
 
@@ -103,13 +103,11 @@ extract_posterior_epifusion <- function(raw_epifusion, burn_in) {
     return(list(infection_trajectories = infection_trajectories,
                 rt_trajectories = rt_trajectories,
                 parameters = parameter_posterior,
-                beta_trajectories = beta_trajectories,
                 fitted_epi_cases = fitted_epi_cases))
   } else {
     return(list(infection_trajectories = infection_trajectories,
                 rt_trajectories = rt_trajectories,
-                parameters = parameter_posterior,
-                beta_trajectories = beta_trajectories))
+                parameters = parameter_posterior))
   }
 
 }
