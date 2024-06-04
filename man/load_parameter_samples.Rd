@@ -2,8 +2,7 @@
 % Please edit documentation in R/load_parameter_samples.R
 \name{load_parameter_samples}
 \alias{load_parameter_samples}
-\title{Load results from EpiFusion folder into an R object
-This function loads the result of an EpiFusion folder into an R list, with the key characteristics and results of the analysis included.}
+\title{Load parameter samples from EpiFusion analysis}
 \usage{
 load_parameter_samples(folderpath)
 }
@@ -14,6 +13,5 @@ load_parameter_samples(folderpath)
 a list of R compatible EpiFusion output objects
 }
 \description{
-Load results from EpiFusion folder into an R object
-This function loads the result of an EpiFusion folder into an R list, with the key characteristics and results of the analysis included.
+This function loads the parameter samples from an EpiFusion analysis into an R list, with one data frame per chain, with one column per parameter and one row per MCMC sample
 }

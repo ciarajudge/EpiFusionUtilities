@@ -2,8 +2,7 @@
 % Please edit documentation in R/prepare_epifusion_tree.R
 \name{prepare_epifusion_tree}
 \alias{prepare_epifusion_tree}
-\title{Prepare a tree (in S3 Phylo Object form) for EpiFusion
-This function prepares a tree, given as an S3 phylo object, for EpiFusion analysis by adding 'time during outbreak' to the node and leaf labels.}
+\title{Prepare a tree (in S3 Phylo Object form) for EpiFusion}
 \usage{
 prepare_epifusion_tree(tree)
 }
@@ -14,6 +13,5 @@ prepare_epifusion_tree(tree)
 a tree (in S3 Phylo Object format)
 }
 \description{
-Prepare a tree (in S3 Phylo Object form) for EpiFusion
 This function prepares a tree, given as an S3 phylo object, for EpiFusion analysis by adding 'time during outbreak' to the node and leaf labels.
 }

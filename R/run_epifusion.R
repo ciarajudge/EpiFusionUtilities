@@ -1,4 +1,5 @@
 #' Run EpiFusion from R
+#'
 #' This function runs EpiFusion from R, assuming you have java installed.
 #'
 #' @param xml_filepath path to the xml input file

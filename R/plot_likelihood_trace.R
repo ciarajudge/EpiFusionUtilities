@@ -1,4 +1,5 @@
 #' Plots the likelihood trace of the chains of an EpiFusion analysis
+#'
 #' This function plots the likelihood trace of the chains of an EpiFusion analysis to assess convergence and help to select the burn-in proportion.
 #'
 #' @param raw_epifusion raw epifusion object

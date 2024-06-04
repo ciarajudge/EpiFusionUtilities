@@ -2,8 +2,7 @@
 % Please edit documentation in R/extract_posterior_epifusion.R
 \name{extract_posterior_epifusion}
 \alias{extract_posterior_epifusion}
-\title{Parse results from raw EpiFusion object into a R object with infection, Rt and parameter posteriors
-This function discards the burn-in from the MCMC samples enclosed in a raw EpiFusion object. The posterior samples, and Rhat and ESS statistics for the parameters of the analysis, are stored in a list.}
+\title{Parse results from raw EpiFusion object into a R object with infection, Rt and parameter posteriors}
 \usage{
 extract_posterior_epifusion(raw_epifusion, burn_in)
 }
@@ -16,6 +15,5 @@ extract_posterior_epifusion(raw_epifusion, burn_in)
 a list of R compatible EpiFusion output objects with burnin discarded
 }
 \description{
-Parse results from raw EpiFusion object into a R object with infection, Rt and parameter posteriors
 This function discards the burn-in from the MCMC samples enclosed in a raw EpiFusion object. The posterior samples, and Rhat and ESS statistics for the parameters of the analysis, are stored in a list.
 }

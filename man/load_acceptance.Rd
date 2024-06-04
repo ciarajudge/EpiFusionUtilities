@@ -2,8 +2,7 @@
 % Please edit documentation in R/load_acceptance.R
 \name{load_acceptance}
 \alias{load_acceptance}
-\title{Load acceptance rates from EpiFusion folder into an R object
-This function loads the acceptance rates for each chain of an EpiFusion analysis into a list of vectors.}
+\title{Load acceptance rates from EpiFusion folder into an R object}
 \usage{
 load_acceptance(folderpath)
 }
@@ -14,6 +13,5 @@ load_acceptance(folderpath)
 a list of vectors of acceptance rates of each chain
 }
 \description{
-Load acceptance rates from EpiFusion folder into an R object
 This function loads the acceptance rates for each chain of an EpiFusion analysis into a list of vectors.
 }

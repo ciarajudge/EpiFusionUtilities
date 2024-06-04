@@ -1,4 +1,5 @@
 #' Load acceptance rates from EpiFusion folder into an R object
+#'
 #' This function loads the acceptance rates for each chain of an EpiFusion analysis into a list of vectors.
 #'
 #' @param folderpath filepath to folder

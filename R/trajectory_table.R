@@ -1,5 +1,6 @@
-#' Extract a table with the mean and HPD intervals of infection and Rt trajectories from an EpiFusion posterior R object
-#' This function extracts a table
+#' Extract a trajectory table from an EpiFusion posterior R object
+#'
+#' This function extracts a table with the mean and HPD intervals of infection and Rt trajectories from an EpiFusion posterior R object. You can provide the date from which you modelled if you want to have your 'Time' column in terms of dates.
 #'
 #' @param epifusion_posterior an extracted EpiFusion posterior object made with the extract_posterior_epifusion() function
 #' @param start_date (optional) date you'd like the time series to count from, as a string with format YYYY-MM-DD

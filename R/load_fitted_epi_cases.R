@@ -1,4 +1,5 @@
 #' Load results from EpiFusion folder into an R object
+#'
 #' This function loads the result of an EpiFusion folder into an R list, with the key characteristics and results of the analysis included.
 #'
 #' @param folderpath filepath to folder

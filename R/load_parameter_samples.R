@@ -1,5 +1,6 @@
-#' Load results from EpiFusion folder into an R object
-#' This function loads the result of an EpiFusion folder into an R list, with the key characteristics and results of the analysis included.
+#' Load parameter samples from EpiFusion analysis
+#'
+#' This function loads the parameter samples from an EpiFusion analysis into an R list, with one data frame per chain, with one column per parameter and one row per MCMC sample
 #'
 #' @param folderpath filepath to folder
 #' @return a list of R compatible EpiFusion output objects

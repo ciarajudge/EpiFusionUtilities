@@ -2,8 +2,7 @@
 % Please edit documentation in R/load_likelihoods.R
 \name{load_likelihoods}
 \alias{load_likelihoods}
-\title{Load results from EpiFusion folder into an R object
-This function loads the result of an EpiFusion folder into an R list, with the key characteristics and results of the analysis included.}
+\title{Load results from EpiFusion folder into an R object}
 \usage{
 load_likelihoods(folderpath)
 }
@@ -14,6 +13,5 @@ load_likelihoods(folderpath)
 a list of R compatible EpiFusion output objects
 }
 \description{
-Load results from EpiFusion folder into an R object
 This function loads the result of an EpiFusion folder into an R list, with the key characteristics and results of the analysis included.
 }

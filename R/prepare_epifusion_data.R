@@ -1,4 +1,5 @@
 #' Prepare a tree (in S3 Phylo Object form) and case incidence (in data.frame form) for EpiFusion
+#'
 #' This function prepares a tree, given as an S3 phylo object, for EpiFusion analysis by adding 'time during outbreak' to the node and leaf labels. It also assigns 'time during outbreak' to the case incidence data making it easier to form the <incidence> node in EpiFusion XML.
 #'
 #' @param tree phylogenetic tree (in S3 Phylo Object format) with branch lengths in terms of days

@@ -1,4 +1,5 @@
 #' Parse results from raw EpiFusion object into a R object with infection, Rt and parameter posteriors
+#'
 #' This function discards the burn-in from the MCMC samples enclosed in a raw EpiFusion object. The posterior samples, and Rhat and ESS statistics for the parameters of the analysis, are stored in a list.
 #'
 #' @param raw_epifusion raw EpiFusion object

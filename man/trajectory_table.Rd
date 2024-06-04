@@ -2,8 +2,7 @@
 % Please edit documentation in R/trajectory_table.R
 \name{trajectory_table}
 \alias{trajectory_table}
-\title{Extract a table with the mean and HPD intervals of infection and Rt trajectories from an EpiFusion posterior R object
-This function extracts a table}
+\title{Extract a trajectory table from an EpiFusion posterior R object}
 \usage{
 trajectory_table(epifusion_posterior, start_date = NA)
 }
@@ -16,6 +15,5 @@ trajectory_table(epifusion_posterior, start_date = NA)
 a table with a column for Time and a column for Mean, Upper and Lower 95\%, 88\% and 66\% HPDs for inferred Infections and Rt
 }
 \description{
-Extract a table with the mean and HPD intervals of infection and Rt trajectories from an EpiFusion posterior R object
-This function extracts a table
+This function extracts a table with the mean and HPD intervals of infection and Rt trajectories from an EpiFusion posterior R object. You can provide the date from which you modelled if you want to have your 'Time' column in terms of dates.
 }

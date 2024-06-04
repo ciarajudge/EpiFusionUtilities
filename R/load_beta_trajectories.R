@@ -1,4 +1,5 @@
 #' Load beta trajectories from EpiFusion folder into an list of dataframes
+#'
 #' This function loads the beta trajectories of an EpiFusion analysis into a list of dataframes, with one dataframe for each chain in the analysis. The data frames are structured with ncol = number of days in the analysis, and nrow = number of MCMC samples.
 #'
 #' @param folderpath filepath to folder
