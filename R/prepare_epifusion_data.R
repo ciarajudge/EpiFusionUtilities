@@ -10,11 +10,12 @@
 #' @importFrom xml2 read_xml
 #' @importFrom xml2 xml_find_all
 #' @importFrom xml2 xml_text
+#' @importFrom stats rnorm
 #' @export
 
 
 prepare_epifusion_data <- function(tree, case_incidence, start_date) {
-  filePath <- system.file("templates", "template.txt", package = "EpiFusionUtilities")
+  filePath <- system.file("extdata", "template.xml", package = "EpiFusionUtilities")
 
   # Get epi information
   incidencetimes <- as.numeric(as.Date(case_incidence$Date) - start_date)
@@ -22,7 +23,7 @@ prepare_epifusion_data <- function(tree, case_incidence, start_date) {
   # Get the latest tip date on the tree
   tip_dates <- as.Date(stringr::str_remove_all(tree$tip.label, "(.*\\|)"))
   distances <- castor::get_all_distances_to_root(tree) + rnorm(length(castor::get_all_distances_to_root(tree)), 0.001, 0.001)
-  nib <- as.numeric(max(tip_dates) - start_date) - max(distances)
+  nib <- (as.numeric(max(tip_dates) - start_date) - max(distances)) + 0.5
   distances <- distances + nib
   node_distances <- distances[(length(tree$tip.label)+1):(length(tree$tip.label)+tree$Nnode)]
   tip_distances <- distances[1:length(tree$tip.label)]
@@ -42,7 +43,7 @@ prepare_epifusion_data <- function(tree, case_incidence, start_date) {
   xml2::xml_text(reaction_node3) <- paste0(treestring, collapse = " ")
 
   # Save the modified XML to a new file
-  xml2::write_xml(doc, "../input.xml")
+  xml2::write_xml(doc, "input.xml")
 }
 
 
