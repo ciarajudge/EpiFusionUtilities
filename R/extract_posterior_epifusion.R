@@ -37,7 +37,7 @@ extract_posterior_epifusion <- function(raw_epifusion, burn_in) {
     tmp <- tmp[discard:nrow(tmp),]
     rt_trajectory_posterior <- rbind(rt_trajectory_posterior, tmp)
   }
-  mean_rt_trajectory = colMeans(rt_trajectory_posterior)
+  mean_rt_trajectory = colMeans(rt_trajectory_posterior, na.rm = TRUE)
   HPD0.95 = list(Lower = HDInterval::hdi(rt_trajectory_posterior, 0.95)[1,], Upper = HDInterval::hdi(rt_trajectory_posterior, 0.95)[2,])
   HPD0.88 = list(Lower = HDInterval::hdi(rt_trajectory_posterior, 0.88)[1,], Upper = HDInterval::hdi(rt_trajectory_posterior, 0.88)[2,])
   HPD0.66 = list(Lower = HDInterval::hdi(rt_trajectory_posterior, 0.66)[1,], Upper = HDInterval::hdi(rt_trajectory_posterior, 0.66)[2,])
