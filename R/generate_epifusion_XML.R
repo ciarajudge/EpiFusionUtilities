@@ -82,6 +82,8 @@ generate_epifusion_XML <- function(tree = NA, case_incidence = NA, index_date, l
     xml2::xml_text(reaction_node2) <- as.character(analysis$startTime)
     reaction_node2 <- xml2::xml_find_all(doc, "//endTime")
     xml2::xml_text(reaction_node2) <- as.character(analysis$endTime)
+    reaction_node2 <- xml2::xml_find_all(doc, "//inferTimeOfIntroduction")
+    xml2::xml_text(reaction_node2) <- as.character(analysis$inferTimeOfIntroduction)
   }
 
   ### MODEL
