@@ -24,7 +24,14 @@ trajectory_table <- function(epifusion_posterior, start_date = NA) {
                                 Lower88_Rt = epifusion_posterior$rt_trajectories$rt_trajectory_hpdintervals$HPD0.88$Lower,
                                 Upper88_Rt = epifusion_posterior$rt_trajectories$rt_trajectory_hpdintervals$HPD0.88$Upper,
                                 Lower66_Rt = epifusion_posterior$rt_trajectories$rt_trajectory_hpdintervals$HPD0.66$Lower,
-                                Upper66_Rt = epifusion_posterior$rt_trajectories$rt_trajectory_hpdintervals$HPD0.66$Upper)
+                                Upper66_Rt = epifusion_posterior$rt_trajectories$rt_trajectory_hpdintervals$HPD0.66$Upper,
+                                Mean_CumulativeInfections = epifusion_posterior$cumulative_infections$mean_cuminfection_trajectory,
+                                Lower95_CumulativeInfections = epifusion_posterior$cumulative_infections$cuminfection_trajectory_hpdintervals$HPD0.95$Lower,
+                                Upper95_CumulativeInfections = epifusion_posterior$cumulative_infections$cuminfection_trajectory_hpdintervals$HPD0.95$Upper,
+                                Lower88_CumulativeInfections = epifusion_posterior$cumulative_infections$cuminfection_trajectory_hpdintervals$HPD0.88$Lower,
+                                Upper88_CumulativeInfections = epifusion_posterior$cumulative_infections$cuminfection_trajectory_hpdintervals$HPD0.88$Upper,
+                                Lower66_CumulativeInfections = epifusion_posterior$cumulative_infections$cuminfection_trajectory_hpdintervals$HPD0.66$Lower,
+                                Upper66_CumulativeInfections = epifusion_posterior$cumulative_infections$cuminfection_trajectory_hpdintervals$HPD0.66$Upper)
   if (!is.na(start_date)) {
     trajectorytable <- dplyr::mutate(trajectorytable, Time = ((Time - 1) + as.Date(start_date)))
   }

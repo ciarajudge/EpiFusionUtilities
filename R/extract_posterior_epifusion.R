@@ -58,11 +58,30 @@ extract_posterior_epifusion <- function(raw_epifusion, burn_in) {
       paramsamples <- append(paramsamples, p[discard:length(p)])
       paramlist[[c]] <- as.matrix(p[discard:length(p)])
     }
-    grstats <- stableGR::stable.GR(paramlist)
+    grstats <- suppressWarnings(stableGR::stable.GR(paramlist))
     rhat <- as.numeric(grstats$psrf)
     ess <- round(as.numeric(grstats$n.eff))
     parameter_posterior[[parameters[i]]] <- list(samples = paramsamples, rhat = rhat, ess = ess)
   }
+
+  cumulative_infections <- raw_epifusion$cumulative_infections
+  cuminfection_trajectory_posterior <- data.frame(matrix(0, nrow = 0, ncol = ncol(cumulative_infections[[1]])))
+  for (i in 1:length(cumulative_infections)) {
+    tmp <- cumulative_infections[[i]]
+    tmp <- tmp[discard:nrow(tmp),]
+    cuminfection_trajectory_posterior <- rbind(cuminfection_trajectory_posterior, tmp)
+  }
+  mean_cuminfection_trajectory = colMeans(cuminfection_trajectory_posterior)
+  HPD0.95 = list(Lower = HDInterval::hdi(cuminfection_trajectory_posterior, 0.95)[1,], Upper = HDInterval::hdi(cuminfection_trajectory_posterior, 0.95)[2,])
+  HPD0.88 = list(Lower = HDInterval::hdi(cuminfection_trajectory_posterior, 0.88)[1,], Upper = HDInterval::hdi(cuminfection_trajectory_posterior, 0.88)[2,])
+  HPD0.66 = list(Lower = HDInterval::hdi(cuminfection_trajectory_posterior, 0.66)[1,], Upper = HDInterval::hdi(cuminfection_trajectory_posterior, 0.66)[2,])
+  cuminfection_trajectory_hpdintervals = list(HPD0.95 = HPD0.95,
+                                           HPD0.88 = HPD0.88,
+                                           HPD0.66 = HPD0.66)
+  cumulative_infections = list(mean_cuminfection_trajectory = mean_cuminfection_trajectory,
+                                cuminfection_trajectory_hpdintervals = cuminfection_trajectory_hpdintervals,
+                                cuminfection_trajectory_samples = cuminfection_trajectory_posterior)
+
 
 
   if (!any(is.na(raw_epifusion$fitted_epi_cases))) {
@@ -86,11 +105,13 @@ extract_posterior_epifusion <- function(raw_epifusion, burn_in) {
     return(list(infection_trajectories = infection_trajectories,
                 rt_trajectories = rt_trajectories,
                 parameters = parameter_posterior,
-                fitted_epi_cases = fitted_epi_cases))
+                fitted_epi_cases = fitted_epi_cases,
+                cumulative_infections = cumulative_infections))
   } else {
     return(list(infection_trajectories = infection_trajectories,
                 rt_trajectories = rt_trajectories,
-                parameters = parameter_posterior))
+                parameters = parameter_posterior,
+                cumulative_infections = cumulative_infections))
   }
 
 }

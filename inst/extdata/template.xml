@@ -9,7 +9,9 @@
       <incidenceVals>INCIDENCE</incidenceVals>
       <incidenceTimes type="exact">INCIDENCETIMES</incidenceTimes>
     </incidence>
-    <tree>TREE</tree>
+    <tree>
+      <treePosterior></treePosterior>
+    </tree>
     <epicontrib>0.5</epicontrib>
     <changetimes>0</changetimes>
   </data>
@@ -17,6 +19,7 @@
     <type>looseformbeta</type>
     <startTime>null</startTime>
     <endTime>null</endTime>
+    <inferTimeOfIntroduction>false</inferTimeOfIntroduction>
   </analysis>
   <model>
     <epiObservationModel>poisson</epiObservationModel>
@@ -31,9 +34,8 @@
     <stepCoefficient>0.05</stepCoefficient>
     <resampleEvery>7</resampleEvery>
     <segmentedDays>true</segmentedDays>
-    <maxEpidemicSize>50000</maxEpidemicSize>
     <samplingsAsRemovals>1</samplingsAsRemovals>
-    <generationPMF>1</generationPMF>
+    <pairedPsi>false</pairedPsi>
   </parameters>
   <priors>
     <gamma>
