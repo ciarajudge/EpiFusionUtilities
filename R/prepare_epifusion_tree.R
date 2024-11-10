@@ -9,6 +9,7 @@
 #' @importFrom ape write.tree
 #' @importFrom castor get_all_distances_to_root
 #' @return a tree (in S3 Phylo Object format)
+#' @export
 
 
 prepare_epifusion_tree <- function(tree, index_date, final_sequence_date, treefile_path = "processedtree.tree") {
