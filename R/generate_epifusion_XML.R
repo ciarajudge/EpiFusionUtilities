@@ -1,4 +1,4 @@
-#' Prepare a tree (in S3 Phylo Object form) and case incidence (in data.frame form) for EpiFusion
+#' Generate an EpiFusion XML file
 #'
 #' This function prepares a tree, given as an S3 phylo object, for EpiFusion analysis by adding 'time during outbreak' to the node and leaf labels. It also assigns 'time during outbreak' to the case incidence data making it easier to form the <incidence> node in EpiFusion XML.
 #'
@@ -22,8 +22,8 @@
 
 
 generate_epifusion_XML <- function(tree = NA, case_incidence = NA, index_date, loggers = NA, analysis = NA, model = NA, parameters = NA, priors = NA, xml_filepath = "input.xml") {
-  #filePath <- system.file("extdata", "template.xml", package = "EpiFusionUtilities")
-  filePath <- "../EpiFusionUtilities/inst/extdata/template.xml"
+  filePath <- system.file("extdata", "template.xml", package = "EpiFusionUtilities")
+
   doc <- xml2::read_xml(filePath)
 
   ### DATA

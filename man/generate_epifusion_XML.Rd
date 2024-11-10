@@ -2,7 +2,7 @@
 % Please edit documentation in R/generate_epifusion_XML.R
 \name{generate_epifusion_XML}
 \alias{generate_epifusion_XML}
-\title{Prepare a tree (in S3 Phylo Object form) and case incidence (in data.frame form) for EpiFusion}
+\title{Generate an EpiFusion XML file}
 \usage{
 generate_epifusion_XML(
   tree = NA,
