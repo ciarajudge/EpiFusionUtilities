@@ -76,14 +76,10 @@ generate_epifusion_XML <- function(tree = NA, case_incidence = NA, index_date, l
 
   ### ANALYSIS
   if (!any(is.na(analysis))) {
-    reaction_node2 <- xml2::xml_find_all(doc, "//type")
-    xml2::xml_text(reaction_node2) <- analysis$fileBase
-    reaction_node2 <- xml2::xml_find_all(doc, "//startTime")
-    xml2::xml_text(reaction_node2) <- as.character(analysis$startTime)
-    reaction_node2 <- xml2::xml_find_all(doc, "//endTime")
-    xml2::xml_text(reaction_node2) <- as.character(analysis$endTime)
-    reaction_node2 <- xml2::xml_find_all(doc, "//inferTimeOfIntroduction")
-    xml2::xml_text(reaction_node2) <- as.character(analysis$inferTimeOfIntroduction)
+    for (i in 1:length(analysis)) {
+      reaction_node2 <- xml2::xml_find_all(doc, paste0("//", names(analysis)[i]))
+      xml2::xml_text(reaction_node2) <- as.character(analysis[[i]])
+    }
   }
 
   ### MODEL
