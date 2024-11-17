@@ -10,17 +10,20 @@
 #' @export
 
 
-run_epifusion <- function(xml_filepath, output_folder_name) {
+run_epifusion <- function(xml_filepath, output_folder_name = NA) {
   filePath <- system.file("java", "EpiFusion.jar", package = "EpiFusionUtilities")
 
-  doc <- xml2::read_xml(xml_filepath)
+  if (!is.na(output_folder_name)) {
+    doc <- xml2::read_xml(xml_filepath)
 
-  # Replace the desired elements
-  reaction_node2 <- xml2::xml_find_all(doc, "//fileBase")
-  xml2::xml_text(reaction_node2) <- output_folder_name
+    # Replace the desired elements
+    reaction_node2 <- xml2::xml_find_all(doc, "//fileBase")
+    xml2::xml_text(reaction_node2) <- output_folder_name
 
-  # Save the modified XML to a new file
-  xml2::write_xml(doc, xml_filepath)
+    # Save the modified XML to a new file
+    xml2::write_xml(doc, xml_filepath)
+  }
+
 
   system(paste0("java -jar ",filePath," ",xml_filepath))
 }

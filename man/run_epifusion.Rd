@@ -4,7 +4,7 @@
 \alias{run_epifusion}
 \title{Run EpiFusion from R}
 \usage{
-run_epifusion(xml_filepath, output_folder_name)
+run_epifusion(xml_filepath, output_folder_name = NA)
 }
 \arguments{
 \item{xml_filepath}{path to the xml input file}
