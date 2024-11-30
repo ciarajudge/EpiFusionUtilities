@@ -10,6 +10,7 @@
 #' @param model ....
 #' @param parameters ....
 #' @param priors ...
+#' @param xml_filepath ...
 #' @importFrom castor get_all_distances_to_root
 #' @importFrom stringr str_remove_all
 #' @importFrom ape read.tree
@@ -17,6 +18,7 @@
 #' @importFrom xml2 read_xml
 #' @importFrom xml2 xml_find_all
 #' @importFrom xml2 xml_text
+#' @importFrom xml2 xml_remove
 #' @importFrom stats rnorm
 #' @export
 
@@ -65,6 +67,8 @@ generate_epifusion_XML <- function(tree = NA, case_incidence = NA, index_date, l
     phylouncertainty_node <- xml2::xml_find_all(doc, "//treePosterior")
     xml2::xml_text(phylouncertainty_node) <- phylouncertainty
   }
+  indexdate_node <- xml2::xml_find_all(doc, "//indexdate")
+  xml2::xml_text(indexdate_node) <- as.character(index_date, format = "%Y-%m-%d")
 
   ### LOGGERS
   if (!any(is.na(loggers))) {
@@ -97,17 +101,10 @@ generate_epifusion_XML <- function(tree = NA, case_incidence = NA, index_date, l
   }
 
   ### PRIORS
-  if (!any(is.na(priors))) {
+  if (!any(is.na(priors))) { #Priors
     prior_node <- xml2::xml_find_all(doc, "//priors")
-    xml2::xml_remove(xml2::xml_children(prior_node))
-    for (i in 1:length(priors)) {
-      name <- names(priors)[i]
-      xml2::xml_add_child(prior_node, name)
-      new_node <- xml2::xml_find_all(doc, paste0("//", name))
-      for (j in 1:length(priors[[i]])) {
-        xml2::xml_add_child(new_node, names(priors[[i]])[j], as.character(priors[[i]][[j]]))
-      }
-    }
+    prior_node <- xml2::xml_find_first(doc, "//priors")
+    generate_XML_chunk(priors, prior_node) #Add to the xml, fine makes sense
   }
 
   # Save the modified XML to a new file

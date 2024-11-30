@@ -16,5 +16,7 @@ Imports:
     stableGR,
     dplyr,
     castor,
-    xml2
+    xml2,
+    tidyverse,
+    ggplot2
 License: GPL (>= 3) + file LICENSE

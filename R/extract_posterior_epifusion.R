@@ -59,8 +59,8 @@ extract_posterior_epifusion <- function(raw_epifusion, burn_in) {
       paramlist[[c]] <- as.matrix(p[discard:length(p)])
     }
     grstats <- suppressWarnings(stableGR::stable.GR(paramlist))
-    rhat <- as.numeric(grstats$psrf)
-    ess <- round(as.numeric(grstats$n.eff))
+    rhat <- suppressWarnings(as.numeric(grstats$psrf))
+    ess <- suppressWarnings(round(as.numeric(grstats$n.eff)))
     parameter_posterior[[parameters[i]]] <- list(samples = paramsamples, rhat = rhat, ess = ess)
   }
 

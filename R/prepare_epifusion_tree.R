@@ -29,7 +29,10 @@ prepare_epifusion_tree <- function(tree, index_date, final_sequence_date, treefi
     offset <- abs(rnorm(1, mean = 0, sd = 0.001))
     for (i in 1:length(trees)) {
       tree <- trees[[i]]
-      all_distances <- (get_all_distances_to_root(tree)*365) + rnorm(length(get_all_distances_to_root(tree)), 0.001, 0.001)
+      all_distances_plain <- (get_all_distances_to_root(tree)*365)
+      max_distances <- ceiling(all_distances_plain) - abs(rnorm(length(all_distances_plain), 0, 0.001))
+      all_distances_jittered <- all_distances_plain + abs(rnorm(length(all_distances_plain), 0, 0.001))
+      all_distances <- pmin(all_distances_jittered, max_distances)
       root <- as.numeric(final_sequence_date - index_date) - max(all_distances)
       if (root < 0) {
         stop("ERROR: A tree sampled from the posterior has a root node that is earlier than your index date!")

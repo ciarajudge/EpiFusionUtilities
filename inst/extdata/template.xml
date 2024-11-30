@@ -5,6 +5,7 @@
     <logEvery>10</logEvery>
   </loggers>
   <data>
+    <indexdate></indexdate>
     <incidence>
       <incidenceVals>INCIDENCE</incidenceVals>
       <incidenceTimes type="exact">INCIDENCETIMES</incidenceTimes>
@@ -23,6 +24,7 @@
   </analysis>
   <model>
     <epiObservationModel>poisson</epiObservationModel>
+    <overdispersion></overdispersion>
   </model>
   <parameters>
     <epiOnly>false</epiOnly>
