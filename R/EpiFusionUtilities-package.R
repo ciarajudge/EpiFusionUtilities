@@ -21,8 +21,6 @@
 #' devtools::install_github("https://github.com/ciarajudge/EpiFusionUtilities")
 #' ```
 #'
-#' @section Author(s):
-#' Ciara Judge <ciara.judge@lshtm.ac.uk>
 #'
 #' @section Maintainer:
 #' Ciara Judge <ciara.judge@lshtm.ac.uk>

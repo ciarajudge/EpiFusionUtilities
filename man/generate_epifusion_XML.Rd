@@ -32,6 +32,8 @@ generate_epifusion_XML(
 \item{parameters}{....}
 
 \item{priors}{...}
+
+\item{xml_filepath}{...}
 }
 \description{
 This function prepares a tree, given as an S3 phylo object, for EpiFusion analysis by adding 'time during outbreak' to the node and leaf labels. It also assigns 'time during outbreak' to the case incidence data making it easier to form the \if{html}{\out{<incidence>}} node in EpiFusion XML.
