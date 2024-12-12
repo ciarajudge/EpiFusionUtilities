@@ -24,15 +24,10 @@ parse the results.
 
 \section{Installation}{
 
-You can install the development version from GitHub with:
+You can install from GitHub with:
 
 \if{html}{\out{<div class="sourceCode">}}\preformatted{devtools::install_github("https://github.com/ciarajudge/EpiFusionUtilities")
 }\if{html}{\out{</div>}}
-}
-
-\section{Author(s)}{
-
-Ciara Judge \href{mailto:ciara.judge@lshtm.ac.uk}{ciara.judge@lshtm.ac.uk}
 }
 
 \section{Maintainer}{

@@ -2,7 +2,7 @@
 % Please edit documentation in R/load_fitted_epi_cases.R
 \name{load_fitted_epi_cases}
 \alias{load_fitted_epi_cases}
-\title{Load results from EpiFusion folder into an R object}
+\title{Load trajectories of fitted epidemiological cases from EpiFusion output folder into a list of dataframes}
 \usage{
 load_fitted_epi_cases(folderpath)
 }
@@ -10,8 +10,8 @@ load_fitted_epi_cases(folderpath)
 \item{folderpath}{filepath to folder}
 }
 \value{
-a list of R compatible EpiFusion output objects
+a list of dataframes with fitted epidemiological case trajectories
 }
 \description{
-This function loads the result of an EpiFusion folder into an R list, with the key characteristics and results of the analysis included.
+This function loads the trajectories of fitted epidemiological cases from an EpiFusion analysis into a list of dataframes, with one dataframe for each chain in the analysis. The data frames are structured with ncol = number of epidemiological case data points, and nrow = number of MCMC samples.
 }

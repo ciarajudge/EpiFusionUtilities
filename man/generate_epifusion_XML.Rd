@@ -23,18 +23,18 @@ generate_epifusion_XML(
 
 \item{index_date}{the date, in \if{html}{\out{<date>}} format, that you want to start modelling the outbreak from. Should be some time before}
 
-\item{loggers}{...}
+\item{loggers}{list of logging information (frequency, where to log the results files)}
 
-\item{analysis}{...}
+\item{analysis}{(optional) list of analysis instructions (e.g. how you wish to fit beta), if you wish to deviate from the default}
 
-\item{model}{....}
+\item{model}{(optional) list of model instructions (e.g. epidemiological observation model), if you wish to deviate from the default}
 
-\item{parameters}{....}
+\item{parameters}{(optional) list of parameters (e.g. how many MCMC steps), if you wish to deviate from the default}
 
-\item{priors}{...}
+\item{priors}{(optional) list of prior distributions for the pMCMC}
 
-\item{xml_filepath}{...}
+\item{xml_filepath}{filepath to write the complete XML file}
 }
 \description{
-This function prepares a tree, given as an S3 phylo object, for EpiFusion analysis by adding 'time during outbreak' to the node and leaf labels. It also assigns 'time during outbreak' to the case incidence data making it easier to form the \if{html}{\out{<incidence>}} node in EpiFusion XML.
+This function takes a phylogenetic tree and/or case incidence data, in addition to some other information (analysis index date etc) and creates a parameter file for EpiFusion in eXtensible Markup Language.
 }

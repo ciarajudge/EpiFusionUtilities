@@ -14,5 +14,5 @@ plot_trajectories(trajectory_table, type = NA, plot_colours = NA)
 \item{plot_colours}{(optional) a vector of colours to be used in the plots}
 }
 \description{
-T
+Plots the trajectory posteriors from an EpiFusion trajectory table. You can specify the trajectory type (infection, Rt, cumulative infection) using the \code{type} parameter, or the function will plot each type by default. You may also specify any number of colours using the \code{plot_colours} parameter.
 }

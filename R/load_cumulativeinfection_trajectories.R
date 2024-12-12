@@ -1,4 +1,4 @@
-#' Load cumulative infections trajectories from EpiFusion folder into an list of dataframes
+#' Load cumulative infections trajectories from EpiFusion output folder into a list of dataframes
 #'
 #' This function loads the cumulative infection trajectories of an EpiFusion analysis into a list of dataframes, with one dataframe for each chain in the analysis. The data frames are structured with ncol = number of days in the analysis, and nrow = number of MCMC samples.
 #'

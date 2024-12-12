@@ -2,7 +2,7 @@
 % Please edit documentation in R/load_likelihoods.R
 \name{load_likelihoods}
 \alias{load_likelihoods}
-\title{Load results from EpiFusion folder into an R object}
+\title{Load likelihood trace from each chain of an EpiFusion analysis}
 \usage{
 load_likelihoods(folderpath)
 }
@@ -10,8 +10,8 @@ load_likelihoods(folderpath)
 \item{folderpath}{filepath to folder}
 }
 \value{
-a list of R compatible EpiFusion output objects
+a list of numeric vectors of likelihoods from an EpiFusion analysis
 }
 \description{
-This function loads the result of an EpiFusion folder into an R list, with the key characteristics and results of the analysis included.
+This function loads the likelihood traces of each chain of an EpiFusion analysis into a list of vectors, with one vector for each chain
 }

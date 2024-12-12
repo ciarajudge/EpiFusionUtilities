@@ -1,5 +1,5 @@
 Package: EpiFusionUtilities
-Title: Useful functions for parsing the output of EpiFusion models
+Title: Useful functions for preparing data for and parsing the output of EpiFusion models
 Version: 0.0.1
 Authors@R: 
     person("Ciara", "Judge", , "ciara.judge@lshtm.ac.uk", role = c("aut", "cre"),
@@ -9,16 +9,17 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
 Suggests: knitr, rmarkdown
-VignetteBuilder: knitr
+VignetteBuilder: rmarkdown
 Imports:
     stringr,
     HDInterval,
     ape,
-    graphics,
     stableGR,
     dplyr,
     castor,
     xml2,
     tidyverse,
-    ggplot2
+    tidyr,
+    ggplot2,
+    ggpubr
 License: GPL (>= 3) + file LICENSE

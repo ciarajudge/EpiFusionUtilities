@@ -2,7 +2,7 @@
 % Please edit documentation in R/load_infection_trajectories.R
 \name{load_infection_trajectories}
 \alias{load_infection_trajectories}
-\title{Load infection trajectories from EpiFusion folder into an list of dataframes}
+\title{Load infection trajectories from EpiFusion folder into a list of dataframes}
 \usage{
 load_infection_trajectories(folderpath)
 }

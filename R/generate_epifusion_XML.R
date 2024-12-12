@@ -1,16 +1,16 @@
 #' Generate an EpiFusion XML file
 #'
-#' This function prepares a tree, given as an S3 phylo object, for EpiFusion analysis by adding 'time during outbreak' to the node and leaf labels. It also assigns 'time during outbreak' to the case incidence data making it easier to form the <incidence> node in EpiFusion XML.
+#' This function takes a phylogenetic tree and/or case incidence data, in addition to some other information (analysis index date etc) and creates a parameter file for EpiFusion in eXtensible Markup Language.
 #'
 #' @param tree phylogenetic tree (in S3 Phylo Object format) with branch lengths in terms of days, or path to a file with the formatted tree(s)
 #' @param case_incidence a data frame with case incidence and their date of occurrence. The data frame should consist of two columns: 'Date', a <Date> column with the observation dates, and 'Cases', a numeric column with reported cases on the corresponding day.
 #' @param index_date the date, in <date> format, that you want to start modelling the outbreak from. Should be some time before
-#' @param loggers ...
-#' @param analysis ...
-#' @param model ....
-#' @param parameters ....
-#' @param priors ...
-#' @param xml_filepath ...
+#' @param loggers list of logging information (frequency, where to log the results files)
+#' @param analysis (optional) list of analysis instructions (e.g. how you wish to fit beta), if you wish to deviate from the default
+#' @param model (optional) list of model instructions (e.g. epidemiological observation model), if you wish to deviate from the default
+#' @param parameters (optional) list of parameters (e.g. how many MCMC steps), if you wish to deviate from the default
+#' @param priors (optional) list of prior distributions for the pMCMC
+#' @param xml_filepath filepath to write the complete XML file
 #' @importFrom castor get_all_distances_to_root
 #' @importFrom stringr str_remove_all
 #' @importFrom ape read.tree
@@ -88,8 +88,10 @@ generate_epifusion_XML <- function(tree = NA, case_incidence = NA, index_date, l
 
   ### MODEL
   if (!any(is.na(model))) {
-    reaction_node2 <- xml2::xml_find_all(doc, "//epiObservationModel")
-    xml2::xml_text(reaction_node2) <- model$epiObservation
+    for (i in 1:length(model)) {
+      reaction_node2 <- xml2::xml_find_all(doc, paste0("//", names(model)[i]))
+      xml2::xml_text(reaction_node2) <- as.character(model[[i]])
+    }
   }
 
   ### PARAMETERS

@@ -12,5 +12,5 @@ run_epifusion(xml_filepath, output_folder_name = NA)
 \item{output_folder_name}{the name of the folder you'd like created for the output}
 }
 \description{
-This function runs EpiFusion from R, assuming you have java installed.
+This function runs EpiFusion from R, assuming you have java installed and callable from your system using the \code{java} command.
 }

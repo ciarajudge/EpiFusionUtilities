@@ -2,7 +2,7 @@
 % Please edit documentation in R/load_cumulativeinfection_trajectories.R
 \name{load_cumulativeinfection_trajectories}
 \alias{load_cumulativeinfection_trajectories}
-\title{Load cumulative infections trajectories from EpiFusion folder into an list of dataframes}
+\title{Load cumulative infections trajectories from EpiFusion output folder into a list of dataframes}
 \usage{
 load_cumulativeinfection_trajectories(folderpath)
 }

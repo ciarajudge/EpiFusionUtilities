@@ -1,9 +1,9 @@
-#' Load results from EpiFusion folder into an R object
+#' Load likelihood trace from each chain of an EpiFusion analysis
 #'
-#' This function loads the result of an EpiFusion folder into an R list, with the key characteristics and results of the analysis included.
+#' This function loads the likelihood traces of each chain of an EpiFusion analysis into a list of vectors, with one vector for each chain
 #'
 #' @param folderpath filepath to folder
-#' @return a list of R compatible EpiFusion output objects
+#' @return a list of numeric vectors of likelihoods from an EpiFusion analysis
 #' @importFrom utils read.table
 #' @export
 

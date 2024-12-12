@@ -16,7 +16,7 @@
 #' - `extract_posterior_epifusion`: For discarding MCMC chain burnin and extracting parameter posteriors.
 #'
 #' @section Installation:
-#' You can install the development version from GitHub with:
+#' You can install from GitHub with:
 #' ```
 #' devtools::install_github("https://github.com/ciarajudge/EpiFusionUtilities")
 #' ```

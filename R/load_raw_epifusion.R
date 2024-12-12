@@ -19,15 +19,18 @@ load_raw_epifusion <- function(folderpath) {
   parameter_samples <- load_parameter_samples(folderpath)
   fitted_cases <- load_fitted_epi_cases(folderpath)
   cumulative_infections <- load_cumulativeinfection_trajectories(folderpath)
-  return(list(num_chains = num_chains,
-              samples_per_chain = samples_per_chain,
-              likelihoods = likelihoods,
-              acceptance_rate = acceptance,
-              infection_trajectories = infection_trajectories,
-              parameter_samples = parameter_samples,
-              rt_trajectories = rt_trajectories,
-              fitted_epi_cases = fitted_cases,
-              cumulative_infections = cumulative_infections))
+  raw_epifusion <- list(num_chains = num_chains,
+                        samples_per_chain = samples_per_chain,
+                        likelihoods = likelihoods,
+                        acceptance_rate = acceptance,
+                        infection_trajectories = infection_trajectories,
+                        parameter_samples = parameter_samples,
+                        rt_trajectories = rt_trajectories,
+                        fitted_epi_cases = fitted_cases,
+                        cumulative_infections = cumulative_infections)
+  print(plot_likelihood_trace(raw_epifusion))
+  print(plot_parameter_trace(raw_epifusion))
+  return(raw_epifusion)
 }
 
 

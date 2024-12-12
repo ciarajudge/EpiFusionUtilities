@@ -2,18 +2,27 @@
 % Please edit documentation in R/extract_posterior_epifusion.R
 \name{extract_posterior_epifusion}
 \alias{extract_posterior_epifusion}
-\title{Parse results from raw EpiFusion object into a R object with infection, Rt and parameter posteriors}
+\title{Parse results from raw EpiFusion object into a R object with infection, Rt, cumulative infection and parameter posteriors}
 \usage{
-extract_posterior_epifusion(raw_epifusion, burn_in)
+extract_posterior_epifusion(
+  raw_epifusion,
+  burn_in,
+  discard_chains = NA,
+  include_samples = FALSE
+)
 }
 \arguments{
 \item{raw_epifusion}{raw EpiFusion object}
 
 \item{burn_in}{proportion (as a decimal) of each chain to discard as burn in}
+
+\item{discard_chains}{(optional) integer vector of chain IDs to discard in the posterior if there were non convergent chains}
+
+\item{include_samples}{(optional) boolean specifying whether to save the posterior samples in the output object (as opposed to just means and HPDs)}
 }
 \value{
 a list of R compatible EpiFusion output objects with burnin discarded
 }
 \description{
-This function discards the burn-in from the MCMC samples enclosed in a raw EpiFusion object. The posterior samples, and Rhat and ESS statistics for the parameters of the analysis, are stored in a list.
+This function discards the burn-in from the MCMC samples enclosed in a raw EpiFusion object. The posterior samples, and Rhat and ESS statistics for the parameters of the analysis, are stored in a list. Mean values, and HPD intervals for each trajectory type (infections, Rt, cumulative infections and, if applicable, modelled cases) and parameter are provided in the result. To save the posterior samples of each, set \code{include_samples} to \code{TRUE} (although doing this may made your object very large)
 }

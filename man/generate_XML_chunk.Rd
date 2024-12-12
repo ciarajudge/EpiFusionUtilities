@@ -12,5 +12,5 @@ generate_XML_chunk(plist, node)
 \item{node}{...}
 }
 \description{
-Th
+Generate an XML chunk from a list
 }

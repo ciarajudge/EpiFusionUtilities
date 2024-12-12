@@ -1,6 +1,5 @@
 #' Generate an XML chunk from a list
 #'
-#' Th
 #'
 #' @param plist ...
 #' @param node ...

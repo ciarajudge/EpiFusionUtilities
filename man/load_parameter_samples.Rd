@@ -10,7 +10,7 @@ load_parameter_samples(folderpath)
 \item{folderpath}{filepath to folder}
 }
 \value{
-a list of R compatible EpiFusion output objects
+a list of data.frames with parameter samples per MCMC chain
 }
 \description{
 This function loads the parameter samples from an EpiFusion analysis into an R list, with one data frame per chain, with one column per parameter and one row per MCMC sample

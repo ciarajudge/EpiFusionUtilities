@@ -1,6 +1,6 @@
 #' Run EpiFusion from R
 #'
-#' This function runs EpiFusion from R, assuming you have java installed.
+#' This function runs EpiFusion from R, assuming you have java installed and callable from your system using the `java` command.
 #'
 #' @param xml_filepath path to the xml input file
 #' @param output_folder_name the name of the folder you'd like created for the output

@@ -1,9 +1,9 @@
-#' Load results from EpiFusion folder into an R object
+#' Load trajectories of fitted epidemiological cases from EpiFusion output folder into a list of dataframes
 #'
-#' This function loads the result of an EpiFusion folder into an R list, with the key characteristics and results of the analysis included.
+#' This function loads the trajectories of fitted epidemiological cases from an EpiFusion analysis into a list of dataframes, with one dataframe for each chain in the analysis. The data frames are structured with ncol = number of epidemiological case data points, and nrow = number of MCMC samples.
 #'
 #' @param folderpath filepath to folder
-#' @return a list of R compatible EpiFusion output objects
+#' @return a list of dataframes with fitted epidemiological case trajectories
 #' @importFrom utils read.csv
 #' @export
 #'

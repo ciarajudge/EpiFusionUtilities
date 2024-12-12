@@ -9,11 +9,11 @@ trajectory_table(epifusion_posterior, start_date = NA)
 \arguments{
 \item{epifusion_posterior}{an extracted EpiFusion posterior object made with the extract_posterior_epifusion() function}
 
-\item{start_date}{(optional) date you'd like the time series to count from, as a string with format YYYY-MM-DD}
+\item{start_date}{(optional) date you'd like the time series to count from, as a date object or as a string with format YYYY-MM-DD}
 }
 \value{
 a table with a column for Time and a column for Mean, Upper and Lower 95\%, 88\% and 66\% HPDs for inferred Infections and Rt
 }
 \description{
-This function extracts a table with the mean and HPD intervals of infection and Rt trajectories from an EpiFusion posterior R object. You can provide the date from which you modelled if you want to have your 'Time' column in terms of dates.
+This function extracts a table with the mean and HPD intervals of infection, Rt and cumulative infection trajectories from an EpiFusion posterior R object. You can provide your analysis index date if you want to have your 'Time' column in terms of dates.
 }

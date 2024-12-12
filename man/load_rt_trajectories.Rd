@@ -2,7 +2,7 @@
 % Please edit documentation in R/load_rt_trajectories.R
 \name{load_rt_trajectories}
 \alias{load_rt_trajectories}
-\title{Load Rt trajectories from EpiFusion folder into an list of dataframes}
+\title{Load Rt trajectories from EpiFusion folder into a list of dataframes}
 \usage{
 load_rt_trajectories(folderpath)
 }

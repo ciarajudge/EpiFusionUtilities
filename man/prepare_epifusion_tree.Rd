@@ -2,7 +2,7 @@
 % Please edit documentation in R/prepare_epifusion_tree.R
 \name{prepare_epifusion_tree}
 \alias{prepare_epifusion_tree}
-\title{Prepare a tree (in S3 Phylo Object form) for EpiFusion}
+\title{Prepare a tree (or trees) for EpiFusion}
 \usage{
 prepare_epifusion_tree(
   tree,
@@ -18,11 +18,11 @@ prepare_epifusion_tree(
 
 \item{final_sequence_date}{date of sampling of the final sequence in the tree or tree posterior}
 
-\item{treefile_path}{path to the file where the processed tree should be stored}
+\item{treefile_path}{path to the file where the processed tree should be stored (default \code{processedtree.tree})}
 }
 \value{
-a tree (in S3 Phylo Object format)
+a tree (in S3 Phylo Object format) with the node and leaf labels in terms of time from the index date. If a tree posterior is passed to the function, nothing is returned to the function and the trees are simply written to the \code{treefile_path}
 }
 \description{
-This function prepares a tree or tree posterior, given as an S3 phylo object, for EpiFusion analysis by adding 'time during outbreak' to the node and leaf labels.
+This function prepares a tree or tree posterior, given as an S3 phylo object, for EpiFusion analysis by adding 'time during outbreak' to the node and leaf labels. You must provide an index date (in date form) which is day \code{0} of your analysis, i.e. the earliest point from which you will model trajectories.
 }

@@ -1,6 +1,6 @@
 #' Plot the trajectory posteriors from a parsed EpiFusion trajectory table
 #'
-#' T
+#' Plots the trajectory posteriors from an EpiFusion trajectory table. You can specify the trajectory type (infection, Rt, cumulative infection) using the `type` parameter, or the function will plot each type by default. You may also specify any number of colours using the `plot_colours` parameter.
 #'
 #' @param trajectory_table a trajectory table extracted from an EpiFusion posterior object
 #' @param type (optional) "infection" "rt" or "cumulativeinfection"
@@ -20,7 +20,27 @@ plot_trajectories <- function(trajectory_table, type = NA, plot_colours = NA) {
 
   if (is.na(type)) {
     pivoted_table <- trajectory_table %>%
-      pivot_longer(!Time) %>%
+      pivot_longer(c(Mean_Infected,
+                     Lower95_Infected,
+                     Upper95_Infected,
+                     Lower88_Infected,
+                     Upper88_Infected,
+                     Lower66_Infected,
+                     Upper66_Infected,
+                     Mean_Rt,
+                     Lower95_Rt,
+                     Upper95_Rt,
+                     Lower88_Rt,
+                     Upper88_Rt,
+                     Lower66_Rt,
+                     Upper66_Rt,
+                     Mean_CumulativeInfections,
+                     Lower95_CumulativeInfections,
+                     Upper95_CumulativeInfections,
+                     Lower88_CumulativeInfections,
+                     Upper88_CumulativeInfections,
+                     Lower66_CumulativeInfections,
+                     Upper66_CumulativeInfections)) %>%
       separate(name, into = c("Statistic", "Characteristic"), sep = "_") %>%
       pivot_wider(names_from = Statistic, values_from = value) %>%
       mutate(Characteristic = factor(Characteristic, levels = c("Infected", "Rt", "CumulativeInfections"))) %>%

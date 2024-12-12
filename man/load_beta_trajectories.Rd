@@ -2,7 +2,7 @@
 % Please edit documentation in R/load_beta_trajectories.R
 \name{load_beta_trajectories}
 \alias{load_beta_trajectories}
-\title{Load beta trajectories from EpiFusion folder into an list of dataframes}
+\title{Load beta trajectories from EpiFusion output folder into a list of dataframes}
 \usage{
 load_beta_trajectories(folderpath)
 }
