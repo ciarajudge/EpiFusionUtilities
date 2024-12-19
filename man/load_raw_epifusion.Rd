@@ -4,14 +4,16 @@
 \alias{load_raw_epifusion}
 \title{Load results from EpiFusion folder into an R object}
 \usage{
-load_raw_epifusion(folderpath)
+load_raw_epifusion(folderpath, suppress_plots = FALSE)
 }
 \arguments{
 \item{folderpath}{filepath to EpiFusion output folder}
+
+\item{suppress_plots}{(optional) set to \code{TRUE} to prevent the likelihood and parameter trace being plotted automatically}
 }
 \value{
 a list of R compatible EpiFusion output objects
 }
 \description{
-This function loads the result of an EpiFusion folder into an R list, with the key characteristics and results of the analysis included.
+This function loads the result of an EpiFusion folder into an R list, with the key characteristics and results of the analysis included. Also plots the likelihood and parameter traces (set suppress_plots to \code{TRUE} to prevent this)
 }

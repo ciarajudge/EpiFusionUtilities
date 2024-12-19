@@ -4,11 +4,11 @@ Version: 0.0.1
 Authors@R: 
     person("Ciara", "Judge", , "ciara.judge@lshtm.ac.uk", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-7923-9898"))
-Description: What the package does (one paragraph).
+Description: The EpiFusionUtilities package provides a suite of functions for preparing data to run joint inference models using the EpiFusion particle filtering infrastructure. It is also possible to run EpiFusion from within you R session using the package, and parse the results.
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
-Suggests: knitr, rmarkdown
+Suggests: knitr, rmarkdown, pkgdown
 VignetteBuilder: rmarkdown
 Imports:
     stringr,

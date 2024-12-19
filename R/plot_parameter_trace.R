@@ -26,7 +26,7 @@ plot_parameter_trace <- function(raw_epifusion) {
                                Value = numeric(0))
   maxtime <- ncol(raw_epifusion$infection_trajectories$Chain1)
 
-  for (i in 1:4) {
+  for (i in 1:raw_epifusion$num_chains) {
     constant_params_chain <- params[[i]] %>%
       dplyr::select(!contains("distrib")) %>%
       dplyr::select(!contains("changetime")) %>%

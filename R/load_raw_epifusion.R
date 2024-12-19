@@ -1,13 +1,14 @@
 #' Load results from EpiFusion folder into an R object
 #'
-#' This function loads the result of an EpiFusion folder into an R list, with the key characteristics and results of the analysis included.
+#' This function loads the result of an EpiFusion folder into an R list, with the key characteristics and results of the analysis included. Also plots the likelihood and parameter traces (set suppress_plots to `TRUE` to prevent this)
 #'
 #' @param folderpath filepath to EpiFusion output folder
+#' @param suppress_plots (optional) set to `TRUE` to prevent the likelihood and parameter trace being plotted automatically
 #' @return a list of R compatible EpiFusion output objects
 #' @importFrom stringr str_count
 #' @export
 
-load_raw_epifusion <- function(folderpath) {
+load_raw_epifusion <- function(folderpath, suppress_plots = FALSE) {
   filepaths <- list.files(folderpath)
   num_chains <- sum(stringr::str_count(filepaths, 'likelihoods'))
   likelihoods <- load_likelihoods(folderpath)
@@ -28,8 +29,11 @@ load_raw_epifusion <- function(folderpath) {
                         rt_trajectories = rt_trajectories,
                         fitted_epi_cases = fitted_cases,
                         cumulative_infections = cumulative_infections)
-  print(plot_likelihood_trace(raw_epifusion))
-  print(plot_parameter_trace(raw_epifusion))
+  if (!suppress_plots) {
+    print(plot_likelihood_trace(raw_epifusion))
+    print(plot_parameter_trace(raw_epifusion))
+  }
+
   return(raw_epifusion)
 }
 

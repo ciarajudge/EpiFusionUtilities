@@ -3,13 +3,13 @@
 #' This function extracts a table with the mean and HPD intervals of infection, Rt and cumulative infection trajectories from an EpiFusion posterior R object. You can provide your analysis index date if you want to have your 'Time' column in terms of dates.
 #'
 #' @param epifusion_posterior an extracted EpiFusion posterior object made with the extract_posterior_epifusion() function
-#' @param start_date (optional) date you'd like the time series to count from, as a date object or as a string with format YYYY-MM-DD
+#' @param index_date (optional) date you'd like the time series to count from, as a date object or as a string with format YYYY-MM-DD
 #' @return a table with a column for Time and a column for Mean, Upper and Lower 95%, 88% and 66% HPDs for inferred Infections and Rt
 #' @import dplyr
 #' @export
 #'
 
-trajectory_table <- function(epifusion_posterior, start_date = NA) {
+trajectory_table <- function(epifusion_posterior, index_date = NA) {
   trajectorytable <- data.frame(Time = 1:length(epifusion_posterior$infection_trajectories$mean_infection_trajectory),
                                 Mean_Infected = epifusion_posterior$infection_trajectories$mean_infection_trajectory,
                                 Lower95_Infected = epifusion_posterior$infection_trajectories$infection_trajectory_hpdintervals$HPD0.95$Lower,
@@ -32,8 +32,8 @@ trajectory_table <- function(epifusion_posterior, start_date = NA) {
                                 Upper88_CumulativeInfections = epifusion_posterior$cumulative_infections$cuminfection_trajectory_hpdintervals$HPD0.88$Upper,
                                 Lower66_CumulativeInfections = epifusion_posterior$cumulative_infections$cuminfection_trajectory_hpdintervals$HPD0.66$Lower,
                                 Upper66_CumulativeInfections = epifusion_posterior$cumulative_infections$cuminfection_trajectory_hpdintervals$HPD0.66$Upper)
-  if (!is.na(start_date)) {
-    trajectorytable <- dplyr::mutate(trajectorytable, Time = ((Time - 1) + as.Date(start_date)))
+  if (!is.na(index_date)) {
+    trajectorytable <- dplyr::mutate(trajectorytable, Time = ((Time - 1) + as.Date(index_date)))
   }
   return(trajectorytable)
 }

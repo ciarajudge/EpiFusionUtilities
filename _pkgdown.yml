@@ -1,0 +1,68 @@
+# Package metadata
+package: EpiFusionUtilities
+title: "EpiFusionUtilities"
+url: https://ciarajudge.github.io/EpiFusionUtilities
+# Optional: Set a logo for your site
+logo: man/figures/logoandname_transparentbackground.png
+
+# Navbar configuration
+navbar:
+  structure:
+    left:
+      - text: Home
+        href: index.html
+      - text: Articles
+        href: articles/
+      - text: Reference
+        href: reference/
+      - text: News
+        href: news/
+  components:
+    right:
+      - icon: fab fa-github
+        href: https://github.com/ciarajudge/EpiFusionUtilities
+
+# Customize the homepage
+home:
+  title: "EpiFusionUtilities"
+  # Optional: Path to a Markdown file for custom homepage content
+  path: README.md
+
+# Reference section configuration
+reference:
+  # Group related functions into sections
+  - title: "Main Functions"
+    desc: >
+      Key functions for working with the package.
+    contents:
+      - main_function1
+      - main_function2
+  - title: "Utilities"
+    desc: >
+      Helper functions and utilities.
+    contents:
+      - util_function1
+      - util_function2
+  # Automatically include all other functions
+  - title: "Other Functions"
+    contents:
+      - everything
+
+# Articles (Vignettes)
+articles:
+  - title: "Introduction"
+    desc: "Getting started with your package"
+    #path: introduction.html
+  - title: "Advanced Usage"
+    desc: "Deep dive into specific features"
+    #path: advanced.html
+
+# News section (for NEWS.md or inst/NEWS.md)
+news:
+  one_page: true
+  title: "Changelog"
+
+# Template customization
+template:
+  params:
+    bootswatch: flatly  # Change theme (e.g., cerulean, flatly, yeti)
