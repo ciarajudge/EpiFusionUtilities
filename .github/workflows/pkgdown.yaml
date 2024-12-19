@@ -28,6 +28,10 @@ jobs:
         Rscript -e 'remotes::install_deps(dependencies = TRUE)'
         Rscript -e 'install.packages("pkgdown")'
 
+    - name: Verify installed packages
+      run: |
+        Rscript -e 'installed.packages()[, c("Package", "Version")]'
+
     # Build the pkgdown site
     - name: Build pkgdown site
       run: |

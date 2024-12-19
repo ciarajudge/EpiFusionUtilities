@@ -1,6 +1,6 @@
 # EpiFusionUtilities
 
-This is EpiFusionUtilities, an R package with useful tools for using the [EpiFusion joint phylodynamic and epidemiological inference software](https://github.com/ciarajudge/EpiFusion). This repository contains the package source code, and information on usage. The science behind the EpiFusion software can be found in this preprint: https://www.biorxiv.org/content/10.1101/2023.12.18.572106v1.
+This is EpiFusionUtilities, an R package with useful tools for using the [EpiFusion joint phylodynamic and epidemiological inference software](https://github.com/ciarajudge/EpiFusion). This repository contains the package source code, and information on usage. The science behind the EpiFusion software can be found in this publication: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1012528
 
 
 ## Getting Started
@@ -16,7 +16,7 @@ We recommend using following the tutorials on the [EpiFusion wiki](https://githu
 
 ## Contributing, Collaborating and Feedback
 
-We encourage any user to point out problems or suggest ideas for improvement by raising an issue, and we will address these (particularly bugs) as quickly as possible. Pull requests are also welcome, but please allow grace in the time we take to review. For an insight into our planned improvements, check the project or issues tab.
+This package is actively maintained and last saw significant updates in January 2025. We encourage any user to point out problems or suggest ideas for improvement by raising an issue, and we will address these (particularly bugs) as quickly as possible. Pull requests are also welcome, but please allow grace in the time we take to review. For an insight into our planned improvements, check the project or issues tab.
 
 
 ## License
@@ -25,4 +25,4 @@ We are sharing EpiFusionUtilities as a free software under the GNU General Publi
 
 
 ## Acknowledgements
-Thank you to all the individuals and organisations that have a role in EpiFusionUtilities' creation and maintenance. These include the London School of Hygiene and Tropical Medicine, and the Royal Veterinary College. Key contributors include Ciara Judge, Oliver Brady, and Sarah Hill.
+Thank you to all the individuals and organisations that have had a role in EpiFusionUtilities' creation and maintenance. These include the London School of Hygiene and Tropical Medicine, and the Royal Veterinary College. Key contributors include Ciara Judge, Oliver Brady, and Sarah Hill.
