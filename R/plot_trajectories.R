@@ -62,6 +62,7 @@ plot_trajectories <- function(trajectory_table, type = NA, plot_colours = NA) {
 
   } else if (type == "infection") {
     p <- ggplot(trajectory_table, aes(x = Time)) +
+      geom_hline(yintercept = 1, col = "grey", linetype = 2) +
       geom_line(aes(y = Mean_Infected), col = cols[1]) +
       geom_ribbon(aes(ymin = Lower95_Infected, ymax = Upper95_Infected), col = NA, alpha = 0.2, fill = cols[1]) +
       geom_ribbon(aes(ymin = Lower88_Infected, ymax = Upper88_Infected), col = NA, alpha = 0.2, fill = cols[1]) +

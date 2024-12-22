@@ -6,6 +6,7 @@
 #' @param suppress_plots (optional) set to `TRUE` to prevent the likelihood and parameter trace being plotted automatically
 #' @return a list of R compatible EpiFusion output objects
 #' @importFrom stringr str_count
+#' @import xml2
 #' @export
 
 load_raw_epifusion <- function(folderpath, suppress_plots = FALSE) {
@@ -20,8 +21,19 @@ load_raw_epifusion <- function(folderpath, suppress_plots = FALSE) {
   parameter_samples <- load_parameter_samples(folderpath)
   fitted_cases <- load_fitted_epi_cases(folderpath)
   cumulative_infections <- load_cumulativeinfection_trajectories(folderpath)
+  xml_files <- list.files(path = folderpath, pattern = "\\.xml$", full.names = TRUE)
+  if (length(xml_files) > 1) {
+    xml_path <- readline(prompt = "Warning - more than one XML file is contained in this folder. Please enter the path to the parameter file:")
+  } else {
+    xml_path <- xml_files[1]
+  }
+  params <- xml2::as_list(xml2::read_xml(xml_path))
+  pairedPsi <- unlist(params$EpiFusionInputs$parameters$pairedPsi)
+
+
   raw_epifusion <- list(num_chains = num_chains,
                         samples_per_chain = samples_per_chain,
+                        paired_psi = pairedPsi,
                         likelihoods = likelihoods,
                         acceptance_rate = acceptance,
                         infection_trajectories = infection_trajectories,
@@ -29,6 +41,7 @@ load_raw_epifusion <- function(folderpath, suppress_plots = FALSE) {
                         rt_trajectories = rt_trajectories,
                         fitted_epi_cases = fitted_cases,
                         cumulative_infections = cumulative_infections)
+
   if (!suppress_plots) {
     print(plot_likelihood_trace(raw_epifusion))
     print(plot_parameter_trace(raw_epifusion))

@@ -68,7 +68,7 @@ generate_epifusion_XML <- function(tree = NA, case_incidence = NA, index_date, l
     xml2::xml_text(phylouncertainty_node) <- phylouncertainty
   }
   indexdate_node <- xml2::xml_find_all(doc, "//indexdate")
-  xml2::xml_text(indexdate_node) <- as.character(index_date, format = "%Y-%m-%d")
+  xml2::xml_text(indexdate_node) <- as.character(index_date)
 
   ### LOGGERS
   if (!any(is.na(loggers))) {
