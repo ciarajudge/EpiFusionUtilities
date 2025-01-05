@@ -38,7 +38,13 @@ plot_parameter_trace <- function(raw_epifusion) {
     params_constant <- rbind(params_constant, constant_params_chain)
 
     if (ncol(params[[i]]) != ncol(dplyr::select(params[[i]], !contains("changetime")))) { #If unequal number of columns there is a changetime
-      timevarparams <- TRUE
+
+      if (raw_epifusion$paired_psi == "true" & (ncol(dplyr::select(dplyr::select(params[[i]], contains("changetime")), !contains("psi"))) == 0)) {
+        timevarparams <- FALSE
+      } else {
+        timevarparams <- TRUE
+      }
+
 
       timevar_params_chain_distribs <- params[[i]] %>%
         dplyr::select(contains("distrib")) %>%
