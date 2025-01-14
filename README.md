@@ -11,7 +11,7 @@ To get started with EpiFusionUtilities you can install it using devtools and the
   devtools::install_github("https://github.com/ciarajudge/EpiFusionUtilities")
   ```
 
-We recommend using following the tutorials on the [EpiFusion wiki](https://github.com/ciarajudge/EpiFusion/wiki) where there is lots of useful instructions on how to use `EpiFusionUtilities` to interact with the EpiFusion software.
+We recommend first consulting the [full function reference on the package website](https://ciarajudge.github.io/EpiFusionUtilities/reference/index.html), before following the tutorials on the [EpiFusion wiki](https://github.com/ciarajudge/EpiFusion/wiki) where there is lots of useful instructions on how to use `EpiFusionUtilities` to interact with the EpiFusion software.
 
 
 ## Contributing, Collaborating and Feedback
