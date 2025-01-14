@@ -1,6 +1,6 @@
 # EpiFusionUtilities
 
-This is EpiFusionUtilities, an R package with useful tools for using the [EpiFusion joint phylodynamic and epidemiological inference software](https://github.com/ciarajudge/EpiFusion). This repository contains the package source code, and information on usage. The science behind the EpiFusion software can be found in this publication: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1012528
+This is EpiFusionUtilities, an R package with useful tools for using the [EpiFusion joint phylodynamic and epidemiological inference software](https://github.com/ciarajudge/EpiFusion). The EpiFusionUtilities package can be used to employ the EpiFusion Analysis Framework, a start to finish workflow from data preparation to result parsing, analysis and plotting. This repository contains the package source code, and information on usage. The science behind the EpiFusion software can be found in [this publication]( https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1012528).
 
 
 ## Getting Started

@@ -27,9 +27,37 @@ home:
 
 reference:
   # Automatically list all exported functions in the package
-  - title: "Functions"
+  - title: "Core Functions"
     contents:
-      - starts_with("")  # This will include all functions
+      - prepare_epifusion_tree
+      - generate_epifusion_XML
+      - run_epifusion
+      - load_raw_epifusion
+      - extract_posterior_epifusion
+      - trajectory_table
+  - title: "Sample Datasets"
+    contents:
+      - baseline_dataset
+      - sampling_dataset
+  - title: "Individual Result Loading Functions"
+    contents:
+      - load_acceptance
+      - load_beta_trajectories
+      - load_cumulativeinfection_trajectories
+      - load_fitted_epi_cases
+      - load_infection_trajectories
+      - load_likelihoods
+      - load_parameter_samples
+      - load_rt_trajectories
+  - title: "Plotting Functions"
+    contents:
+      - plot_likelihood_trace
+      - plot_parameter_trace
+      - plot_trajectories
+      - plot_chainwise_trajectories
+  - title: "Other Functions"
+    contents:
+      - calculate_daily_infections
 
 # News section (for NEWS.md or inst/NEWS.md)
 #news:
