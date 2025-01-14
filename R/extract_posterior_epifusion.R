@@ -9,6 +9,7 @@
 #' @return a list of R compatible EpiFusion output objects with burnin discarded
 #' @importFrom HDInterval hdi
 #' @importFrom stableGR stable.GR
+#' @importFrom matrixStats colMedians
 #' @export
 
 
@@ -27,6 +28,7 @@ extract_posterior_epifusion <- function(raw_epifusion, burn_in, discard_chains =
     infection_trajectory_posterior <- rbind(infection_trajectory_posterior, tmp)
   }
   mean_infection_trajectory = colMeans(infection_trajectory_posterior)
+  median_infection_trajectory = matrixStats::colMedians(as.matrix(infection_trajectory_posterior))
   HPD0.95 = list(Lower = HDInterval::hdi(infection_trajectory_posterior, 0.95)[1,], Upper = HDInterval::hdi(infection_trajectory_posterior, 0.95)[2,])
   HPD0.88 = list(Lower = HDInterval::hdi(infection_trajectory_posterior, 0.88)[1,], Upper = HDInterval::hdi(infection_trajectory_posterior, 0.88)[2,])
   HPD0.66 = list(Lower = HDInterval::hdi(infection_trajectory_posterior, 0.66)[1,], Upper = HDInterval::hdi(infection_trajectory_posterior, 0.66)[2,])
@@ -35,10 +37,12 @@ extract_posterior_epifusion <- function(raw_epifusion, burn_in, discard_chains =
                                            HPD0.66 = HPD0.66)
   if (include_samples) {
     infection_trajectories = list(mean_infection_trajectory = mean_infection_trajectory,
+                                  median_infection_trajectory = median_infection_trajectory,
                                   infection_trajectory_hpdintervals = infection_trajectory_hpdintervals,
                                   infection_trajectory_samples = infection_trajectory_posterior)
   } else {
     infection_trajectories = list(mean_infection_trajectory = mean_infection_trajectory,
+                                  median_infection_trajectory = median_infection_trajectory,
                                   infection_trajectory_hpdintervals = infection_trajectory_hpdintervals)
   }
 
@@ -51,6 +55,7 @@ extract_posterior_epifusion <- function(raw_epifusion, burn_in, discard_chains =
     rt_trajectory_posterior <- rbind(rt_trajectory_posterior, tmp)
   }
   mean_rt_trajectory = colMeans(rt_trajectory_posterior, na.rm = TRUE)
+  median_rt_trajectory = matrixStats::colMedians(as.matrix(rt_trajectory_posterior), na.rm = TRUE)
   HPD0.95 = list(Lower = HDInterval::hdi(rt_trajectory_posterior, 0.95)[1,], Upper = HDInterval::hdi(rt_trajectory_posterior, 0.95)[2,])
   HPD0.88 = list(Lower = HDInterval::hdi(rt_trajectory_posterior, 0.88)[1,], Upper = HDInterval::hdi(rt_trajectory_posterior, 0.88)[2,])
   HPD0.66 = list(Lower = HDInterval::hdi(rt_trajectory_posterior, 0.66)[1,], Upper = HDInterval::hdi(rt_trajectory_posterior, 0.66)[2,])
@@ -59,10 +64,12 @@ extract_posterior_epifusion <- function(raw_epifusion, burn_in, discard_chains =
                                            HPD0.66 = HPD0.66)
   if (include_samples) {
     rt_trajectories = list(mean_rt_trajectory = mean_rt_trajectory,
+                           median_rt_trajectory = median_rt_trajectory,
                            rt_trajectory_hpdintervals = rt_trajectory_hpdintervals,
                            rt_trajectory_samples = rt_trajectory_posterior)
   } else {
     rt_trajectories = list(mean_rt_trajectory = mean_rt_trajectory,
+                           median_rt_trajectory = median_rt_trajectory,
                            rt_trajectory_hpdintervals = rt_trajectory_hpdintervals)
   }
 
@@ -105,6 +112,7 @@ extract_posterior_epifusion <- function(raw_epifusion, burn_in, discard_chains =
     cuminfection_trajectory_posterior <- rbind(cuminfection_trajectory_posterior, tmp)
   }
   mean_cuminfection_trajectory = colMeans(cuminfection_trajectory_posterior)
+  median_cuminfection_trajectory = matrixStats::colMedians(as.matrix(cuminfection_trajectory_posterior))
   HPD0.95 = list(Lower = HDInterval::hdi(cuminfection_trajectory_posterior, 0.95)[1,], Upper = HDInterval::hdi(cuminfection_trajectory_posterior, 0.95)[2,])
   HPD0.88 = list(Lower = HDInterval::hdi(cuminfection_trajectory_posterior, 0.88)[1,], Upper = HDInterval::hdi(cuminfection_trajectory_posterior, 0.88)[2,])
   HPD0.66 = list(Lower = HDInterval::hdi(cuminfection_trajectory_posterior, 0.66)[1,], Upper = HDInterval::hdi(cuminfection_trajectory_posterior, 0.66)[2,])
@@ -113,10 +121,12 @@ extract_posterior_epifusion <- function(raw_epifusion, burn_in, discard_chains =
                                            HPD0.66 = HPD0.66)
   if (include_samples) {
     cumulative_infections = list(mean_cuminfection_trajectory = mean_cuminfection_trajectory,
+                                 median_cuminfection_trajectory = median_cuminfection_trajectory,
                                  cuminfection_trajectory_hpdintervals = cuminfection_trajectory_hpdintervals,
                                  cuminfection_trajectory_samples = cuminfection_trajectory_posterior)
   } else {
     cumulative_infections = list(mean_cuminfection_trajectory = mean_cuminfection_trajectory,
+                                 median_cuminfection_trajectory = median_cuminfection_trajectory,
                                  cuminfection_trajectory_hpdintervals = cuminfection_trajectory_hpdintervals)
   }
 
@@ -132,6 +142,7 @@ extract_posterior_epifusion <- function(raw_epifusion, burn_in, discard_chains =
       fitted_epi_cases_posterior <- rbind(fitted_epi_cases_posterior, tmp)
     }
     mean_fitted_epi_cases = colMeans(fitted_epi_cases_posterior)
+    median_fitted_epi_cases = matrixStats::colMedians(as.matrix(fitted_epi_cases_posterior))
     HPD0.95 = list(Lower = HDInterval::hdi(fitted_epi_cases_posterior, 0.95)[1,], Upper = HDInterval::hdi(fitted_epi_cases_posterior, 0.95)[2,])
     HPD0.88 = list(Lower = HDInterval::hdi(fitted_epi_cases_posterior, 0.88)[1,], Upper = HDInterval::hdi(fitted_epi_cases_posterior, 0.88)[2,])
     HPD0.66 = list(Lower = HDInterval::hdi(fitted_epi_cases_posterior, 0.66)[1,], Upper = HDInterval::hdi(fitted_epi_cases_posterior, 0.66)[2,])
@@ -140,10 +151,12 @@ extract_posterior_epifusion <- function(raw_epifusion, burn_in, discard_chains =
                                          HPD0.66 = HPD0.66)
     if (include_samples) {
       fitted_epi_cases = list(mean_fitted_epi_cases = mean_fitted_epi_cases,
+                              median_fitted_epi_cases = median_fitted_epi_cases,
                               fitted_epi_cases_hpdintervals = fitted_epi_cases_hpdintervals,
                               fitted_epi_cases_samples = fitted_epi_cases_posterior)
     } else {
       fitted_epi_cases = list(mean_fitted_epi_cases = mean_fitted_epi_cases,
+                              median_fitted_epi_cases = median_fitted_epi_cases,
                               fitted_epi_cases_hpdintervals = fitted_epi_cases_hpdintervals)
     }
 

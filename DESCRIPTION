@@ -21,5 +21,6 @@ Imports:
     tidyverse,
     tidyr,
     ggplot2,
-    ggpubr
+    ggpubr,
+    matrixStats
 License: GPL (>= 3) + file LICENSE

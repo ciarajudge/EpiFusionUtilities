@@ -4,12 +4,18 @@
 \alias{calculate_daily_infections}
 \title{Calculate means and HPD intervals of new infections per day from the cumulative infections posterior samples}
 \usage{
-calculate_daily_infections(cumulative_infection_samples, index_date = NA)
+calculate_daily_infections(
+  cumulative_infection_samples,
+  index_date = NA,
+  include_median = FALSE
+)
 }
 \arguments{
 \item{cumulative_infection_samples}{the samples of cumulative infection trajectories from an Epifusion posterior object (generated using the \code{extract_posterior_epifusion()} function with \code{include_samples} set to \code{TRUE})}
 
 \item{index_date}{(optional) date you'd like the time series to count from, as a date object or as a string with format YYYY-MM-DD}
+
+\item{include_median}{(default \code{FALSE}) set to \code{TRUE} if you would like the median trajectory to be included in the output table}
 }
 \value{
 a table with a column for Time and a column for Mean, Upper and Lower 95\%, 88\% and 66\% HPDs for inferred Infections and Rt
