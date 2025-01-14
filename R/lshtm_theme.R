@@ -2,7 +2,7 @@
 #'
 #' Th
 #' @import dplyr
-#'
+#' @keywords internal
 
 lshtm_theme <- function() {
   theme(

@@ -14,3 +14,4 @@ generate_XML_chunk(plist, node)
 \description{
 Generate an XML chunk from a list
 }
+\keyword{internal}

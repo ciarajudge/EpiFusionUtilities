@@ -7,6 +7,7 @@
 #' @importFrom xml2 xml_add_child
 #' @importFrom xml2 xml_text
 #' @importFrom xml2 xml_remove
+#' @keywords internal
 
 
 generate_XML_chunk <- function(plist, node) {
