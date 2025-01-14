@@ -40,3 +40,5 @@ reference:
 template:
   params:
     bootswatch: flatly  # Change theme (e.g., cerulean, flatly, yeti)
+
+build:
