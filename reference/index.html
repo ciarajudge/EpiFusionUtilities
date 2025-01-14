@@ -38,7 +38,35 @@
     </div>
 
     <table class="ref-index"><colgroup><col class="alias"><col class="title"></colgroup><tbody><tr><th colspan="2">
-          <h2 id="functions">Functions <a href="#functions" class="anchor" aria-hidden="true"></a></h2>
+          <h2 id="core-functions">Core Functions <a href="#core-functions" class="anchor" aria-hidden="true"></a></h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr></tbody><tbody><tr><td>
+          <p><code><a href="prepare_epifusion_tree.html">prepare_epifusion_tree()</a></code> </p>
+        </td>
+        <td><p>Prepare a tree (or trees) for EpiFusion</p></td>
+      </tr><tr><td>
+          <p><code><a href="generate_epifusion_XML.html">generate_epifusion_XML()</a></code> </p>
+        </td>
+        <td><p>Generate an EpiFusion XML file</p></td>
+      </tr><tr><td>
+          <p><code><a href="run_epifusion.html">run_epifusion()</a></code> </p>
+        </td>
+        <td><p>Run EpiFusion from R</p></td>
+      </tr><tr><td>
+          <p><code><a href="load_raw_epifusion.html">load_raw_epifusion()</a></code> </p>
+        </td>
+        <td><p>Load results from EpiFusion folder into an R object</p></td>
+      </tr><tr><td>
+          <p><code><a href="extract_posterior_epifusion.html">extract_posterior_epifusion()</a></code> </p>
+        </td>
+        <td><p>Parse results from raw EpiFusion object into a R object with infection, Rt, cumulative infection and parameter posteriors</p></td>
+      </tr><tr><td>
+          <p><code><a href="trajectory_table.html">trajectory_table()</a></code> </p>
+        </td>
+        <td><p>Extract a trajectory table from an EpiFusion posterior R object</p></td>
+      </tr></tbody><tbody><tr><th colspan="2">
+          <h2 id="sample-datasets">Sample Datasets <a href="#sample-datasets" class="anchor" aria-hidden="true"></a></h2>
           <p class="section-desc"></p>
         </th>
       </tr></tbody><tbody><tr><td>
@@ -46,22 +74,14 @@
         </td>
         <td><p>Load baseline simulated dataset for trying EpiFusion</p></td>
       </tr><tr><td>
-          <p><code><a href="calculate_daily_infections.html">calculate_daily_infections()</a></code> </p>
+          <p><code><a href="sampling_dataset.html">sampling_dataset()</a></code> </p>
         </td>
-        <td><p>Calculate means and HPD intervals of new infections per day from the cumulative infections posterior samples</p></td>
-      </tr><tr><td>
-          <p><code><a href="extract_posterior_epifusion.html">extract_posterior_epifusion()</a></code> </p>
-        </td>
-        <td><p>Parse results from raw EpiFusion object into a R object with infection, Rt, cumulative infection and parameter posteriors</p></td>
-      </tr><tr><td>
-          <p><code><a href="generate_XML_chunk.html">generate_XML_chunk()</a></code> </p>
-        </td>
-        <td><p>Generate an XML chunk from a list</p></td>
-      </tr><tr><td>
-          <p><code><a href="generate_epifusion_XML.html">generate_epifusion_XML()</a></code> </p>
-        </td>
-        <td><p>Generate an EpiFusion XML file</p></td>
-      </tr><tr><td>
+        <td><p>Load step-change in sampling simulated dataset for trying EpiFusion</p></td>
+      </tr></tbody><tbody><tr><th colspan="2">
+          <h2 id="individual-result-loading-functions">Individual Result Loading Functions <a href="#individual-result-loading-functions" class="anchor" aria-hidden="true"></a></h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr></tbody><tbody><tr><td>
           <p><code><a href="load_acceptance.html">load_acceptance()</a></code> </p>
         </td>
         <td><p>Load acceptance rates from EpiFusion folder into an R object</p></td>
@@ -90,22 +110,14 @@
         </td>
         <td><p>Load parameter samples from EpiFusion analysis</p></td>
       </tr><tr><td>
-          <p><code><a href="load_raw_epifusion.html">load_raw_epifusion()</a></code> </p>
-        </td>
-        <td><p>Load results from EpiFusion folder into an R object</p></td>
-      </tr><tr><td>
           <p><code><a href="load_rt_trajectories.html">load_rt_trajectories()</a></code> </p>
         </td>
         <td><p>Load Rt trajectories from EpiFusion folder into a list of dataframes</p></td>
-      </tr><tr><td>
-          <p><code><a href="lshtm_theme.html">lshtm_theme()</a></code> </p>
-        </td>
-        <td><p>LSHTM Plotting Theme</p></td>
-      </tr><tr><td>
-          <p><code><a href="plot_chainwise_trajectories.html">plot_chainwise_trajectories()</a></code> </p>
-        </td>
-        <td><p>Plot the trajectory posteriors from a raw EpiFusion object separated by chain</p></td>
-      </tr><tr><td>
+      </tr></tbody><tbody><tr><th colspan="2">
+          <h2 id="plotting-functions">Plotting Functions <a href="#plotting-functions" class="anchor" aria-hidden="true"></a></h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr></tbody><tbody><tr><td>
           <p><code><a href="plot_likelihood_trace.html">plot_likelihood_trace()</a></code> </p>
         </td>
         <td><p>Plots the likelihood trace of the chains of an EpiFusion analysis</p></td>
@@ -118,21 +130,17 @@
         </td>
         <td><p>Plot the trajectory posteriors from a parsed EpiFusion trajectory table</p></td>
       </tr><tr><td>
-          <p><code><a href="prepare_epifusion_tree.html">prepare_epifusion_tree()</a></code> </p>
+          <p><code><a href="plot_chainwise_trajectories.html">plot_chainwise_trajectories()</a></code> </p>
         </td>
-        <td><p>Prepare a tree (or trees) for EpiFusion</p></td>
-      </tr><tr><td>
-          <p><code><a href="run_epifusion.html">run_epifusion()</a></code> </p>
+        <td><p>Plot the trajectory posteriors from a raw EpiFusion object separated by chain</p></td>
+      </tr></tbody><tbody><tr><th colspan="2">
+          <h2 id="other-functions">Other Functions <a href="#other-functions" class="anchor" aria-hidden="true"></a></h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr></tbody><tbody><tr><td>
+          <p><code><a href="calculate_daily_infections.html">calculate_daily_infections()</a></code> </p>
         </td>
-        <td><p>Run EpiFusion from R</p></td>
-      </tr><tr><td>
-          <p><code><a href="sampling_dataset.html">sampling_dataset()</a></code> </p>
-        </td>
-        <td><p>Load step-change in sampling simulated dataset for trying EpiFusion</p></td>
-      </tr><tr><td>
-          <p><code><a href="trajectory_table.html">trajectory_table()</a></code> </p>
-        </td>
-        <td><p>Extract a trajectory table from an EpiFusion posterior R object</p></td>
+        <td><p>Calculate means and HPD intervals of new infections per day from the cumulative infections posterior samples</p></td>
       </tr></tbody></table></div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
