@@ -5,22 +5,19 @@ url: https://ciarajudge.github.io/EpiFusionUtilities
 # Optional: Set a logo for your site
 logo: man/figures/logoandname_transparentbackground.png
 
-# Navbar configuration
-navbar:
-  structure:
-    left:
-      - text: Home
-        href: index.html
-      - text: Articles
-        href: articles/
-      - text: Reference
-        href: reference/
-      - text: News
-        href: news/
-  components:
-    right:
-      - icon: fab fa-github
-        href: https://github.com/ciarajudge/EpiFusionUtilities
+pkgdown:
+  template:
+    bootstrap: 5  # Use Bootstrap 5
+  navbar:
+    structure:
+      left:
+        - text: "Reference"
+          href: reference/index.html
+      right:
+        - text: "GitHub"
+          href: https://github.com/yourusername/EpiFusionUtilities  # Replace with your actual repo URL
+  url: https://ciarajudge.github.io/EpiFusionUtilities  # Replace with your actual site URL
+  destination: docs  # Output directory for the built site
 
 # Customize the homepage
 home:
@@ -28,39 +25,16 @@ home:
   # Optional: Path to a Markdown file for custom homepage content
   path: README.md
 
-# Reference section configuration
 reference:
-  # Group related functions into sections
-  - title: "Main Functions"
-    desc: >
-      Key functions for working with the package.
+  # Automatically list all exported functions in the package
+  - title: "Functions"
     contents:
-      - main_function1
-      - main_function2
-  - title: "Utilities"
-    desc: >
-      Helper functions and utilities.
-    contents:
-      - util_function1
-      - util_function2
-  # Automatically include all other functions
-  - title: "Other Functions"
-    contents:
-      - everything
-
-# Articles (Vignettes)
-articles:
-  - title: "Introduction"
-    desc: "Getting started with your package"
-    #path: introduction.html
-  - title: "Advanced Usage"
-    desc: "Deep dive into specific features"
-    #path: advanced.html
+      - starts_with("")  # This will include all functions
 
 # News section (for NEWS.md or inst/NEWS.md)
-news:
-  one_page: true
-  title: "Changelog"
+#news:
+#  one_page: true
+#  title: "Changelog"
 
 # Template customization
 template:
