@@ -14,6 +14,7 @@
 plot_chainwise_trajectories <- function(raw_epifusion, burn_in, type = NA) {
   trajectory_table <- data.frame(Time = numeric(0),
                                  Chain = character(0),
+                                 Stuck = character(0),
                                  Mean_Infected = numeric(0),
                                  Lower95_Infected = numeric(0),
                                  Upper95_Infected = numeric(0),
@@ -40,6 +41,7 @@ plot_chainwise_trajectories <- function(raw_epifusion, burn_in, type = NA) {
   chains <- seq(1, length(raw_epifusion$infection_trajectories))
   discard <- round(nrow(raw_epifusion$infection_trajectories[[1]])*burn_in)
 
+  acceptance <- raw_epifusion$acceptance_rate
   infection_trajectories <- raw_epifusion$infection_trajectories
   rt_trajectories <- raw_epifusion$rt_trajectories
   cumulative_infections <- raw_epifusion$cumulative_infections
@@ -76,8 +78,11 @@ plot_chainwise_trajectories <- function(raw_epifusion, burn_in, type = NA) {
     Lower66_CumulativeInfections = HDInterval::hdi(cuminfection_trajectory_posterior, 0.66)[1,]
     Upper66_CumulativeInfections = HDInterval::hdi(cuminfection_trajectory_posterior, 0.66)[2,]
 
+    stuck = ifelse(mean(acceptance[[i]][discard:raw_epifusion$samples_per_chain]) == 0, "YES", "NO")
+
     tempdf <- data.frame(Time = seq(1, length(Mean_Infected)),
                          Chain = names(raw_epifusion$infection_trajectories)[i],
+                         Stuck = stuck,
                          Mean_Infected = Mean_Infected,
                          Lower95_Infected = Lower95_Infected,
                          Upper95_Infected = Upper95_Infected,
@@ -134,10 +139,12 @@ plot_chainwise_trajectories <- function(raw_epifusion, burn_in, type = NA) {
       separate(name, into = c("Statistic", "Characteristic"), sep = "_") %>%
       tidyr::pivot_wider(names_from = Statistic, values_from = value) %>%
       mutate(Characteristic = factor(Characteristic, levels = c("Infected", "Rt", "CumulativeInfections"))) %>%
-      mutate(Rtline = ifelse(Characteristic == "Rt", 1, NA))
+      mutate(Rtline = ifelse(Characteristic == "Rt", 1, NA)) %>%
+      mutate(Stuck = factor(Stuck, levels = c("NO", "YES")))
 
     p <- ggplot(pivoted_table, aes(x = Time, col = Chain, fill = Chain)) +
-      geom_line(aes(y = Mean), show.legend = F) +
+      geom_line(aes(y = Mean, linetype = Stuck), show.legend = F) +
+      scale_linetype_manual(values = c(1,2)) +
       geom_line(aes(y = Rtline), col = "grey", linetype = 2) +
       geom_ribbon(aes(ymin = Lower95, ymax = Upper95), col = NA, alpha = 0.2, show.legend = F) +
       #geom_ribbon(aes(ymin = Lower88, ymax = Upper88), col = NA, alpha = 0.2, show.legend = F) +
@@ -150,7 +157,7 @@ plot_chainwise_trajectories <- function(raw_epifusion, burn_in, type = NA) {
 
   } else if (type == "infection") {
     p <- ggplot(trajectory_table, aes(x = Time, col = Chain, fill = Chain)) +
-      geom_line(aes(y = Mean_Infected)) +
+      geom_line(aes(y = Mean_Infected, linetype = Stuck)) +
       geom_ribbon(aes(ymin = Lower95_Infected, ymax = Upper95_Infected), col = NA, alpha = 0.2) +
       #geom_ribbon(aes(ymin = Lower88_Infected, ymax = Upper88_Infected), col = NA, alpha = 0.2) +
       #geom_ribbon(aes(ymin = Lower66_Infected, ymax = Upper66_Infected), col = NA, alpha = 0.2) +
@@ -160,7 +167,7 @@ plot_chainwise_trajectories <- function(raw_epifusion, burn_in, type = NA) {
 
   } else if (type == "rt") {
     p <- ggplot(trajectory_table, aes(x = Time, col = Chain, fill = Chain)) +
-      geom_line(aes(y = Mean_Rt)) +
+      geom_line(aes(y = Mean_Rt, linetype = Stuck)) +
       geom_ribbon(aes(ymin = Lower95_Rt, ymax = Upper95_Rt), col = NA, alpha = 0.2) +
       #geom_ribbon(aes(ymin = Lower88_Rt, ymax = Upper88_Rt), col = NA, alpha = 0.2) +
       #geom_ribbon(aes(ymin = Lower66_Rt, ymax = Upper66_Rt), col = NA, alpha = 0.2) +
@@ -170,7 +177,7 @@ plot_chainwise_trajectories <- function(raw_epifusion, burn_in, type = NA) {
 
   } else if (type == "cumulativeinfection") {
     p <- ggplot(trajectory_table, aes(x = Time, col = Chain, fill = Chain)) +
-      geom_line(aes(y = Mean_CumulativeInfections)) +
+      geom_line(aes(y = Mean_CumulativeInfections, linetype = Stuck)) +
       geom_ribbon(aes(ymin = Lower95_CumulativeInfections, ymax = Upper95_CumulativeInfections), col = NA, alpha = 0.2) +
       #geom_ribbon(aes(ymin = Lower88_CumulativeInfections, ymax = Upper88_CumulativeInfections), col = NA, alpha = 0.2, fill = cols[3]) +
       #geom_ribbon(aes(ymin = Lower66_CumulativeInfections, ymax = Upper66_CumulativeInfections), col = NA, alpha = 0.2, fill = cols[3]) +

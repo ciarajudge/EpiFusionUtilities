@@ -3,6 +3,7 @@
 #' T
 #'
 #' @param raw_epifusion raw epifusion object
+#' @param type type of parameters to plot, i.e. all parameters ("all"), parameters that are constant across the time series ("constant"), or time-varying parameters that have been inferred in piecewise constant intervals with time-variant priors ("timevar")
 #' @import dplyr
 #' @import tidyverse
 #' @import ggplot2
@@ -10,7 +11,7 @@
 #' @export
 #'
 
-plot_parameter_trace <- function(raw_epifusion) {
+plot_parameter_trace <- function(raw_epifusion, type = "all") {
   sink(tempfile())
   params <- raw_epifusion$parameter_samples
 
@@ -80,24 +81,46 @@ plot_parameter_trace <- function(raw_epifusion) {
   sink()
 
   fixed_params <- ggplot2::ggplot(params_constant, aes(x = Sample, y = Value, col = Chain)) +
-    ggplot2::geom_line() +
+    ggplot2::geom_line(alpha = 0.7) +
     ggplot2::facet_wrap(~Parameter, scales = "free") +
     lshtm_theme()
 
-  if (timevarparams) {
+  if (type == "all") {
+    if (timevarparams) {
 
-    if (raw_epifusion$paired_psi == "true") {
-      params_timevar <- dplyr::filter(params_timevar, Parameter != "psi")
+      if (raw_epifusion$paired_psi == "true") {
+        params_timevar <- dplyr::filter(params_timevar, Parameter != "psi")
+      }
+
+      timevarying_params <- ggplot2::ggplot(params_timevar, aes(x = Time, y = Value, group = Sample)) +
+        ggplot2::geom_step(aes(col = Sample)) +
+        ggplot2::facet_grid(Parameter ~ Chain, scales = "free") +
+        lshtm_theme()
+
+      ggpubr::ggarrange(fixed_params, timevarying_params, ncol = 2)
+    } else {
+      fixed_params
     }
-
-    timevarying_params <- ggplot2::ggplot(params_timevar, aes(x = Time, y = Value, group = Sample)) +
-      ggplot2::geom_step(aes(col = Sample)) +
-      ggplot2::facet_grid(Parameter ~ Chain, scales = "free") +
-      lshtm_theme()
-
-    ggpubr::ggarrange(fixed_params, timevarying_params, ncol = 2)
-  } else {
+  } else if (type == "constant") {
     fixed_params
+  } else if (type == "timevar") {
+    if (timevarparams) {
+
+      if (raw_epifusion$paired_psi == "true") {
+        params_timevar <- dplyr::filter(params_timevar, Parameter != "psi")
+      }
+
+      timevarying_params <- ggplot2::ggplot(params_timevar, aes(x = Time, y = Value, group = Sample)) +
+        ggplot2::geom_step(aes(col = Sample)) +
+        ggplot2::facet_grid(Parameter ~ Chain, scales = "free") +
+        lshtm_theme()
+
+      timevarying_params
+    } else {
+      print("ERROR: you have specified 'timevar' as the parameter trace type, but there are no time varying parameters in these results.")
+    }
+  } else {
+    print("ERROR: You have entered an unrecognised 'type' argument. Please specify one of the following as the plot type ('all', 'constant', 'timevar'). The default is 'all'.")
   }
 
 

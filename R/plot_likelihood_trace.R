@@ -20,6 +20,6 @@ plot_likelihood_trace <- function(raw_epifusion) {
   }
 
   ggplot2::ggplot(likelihood_df, aes(x = Sample, y = Likelihood, col = Chain)) +
-    ggplot2::geom_step() +
+    ggplot2::geom_step(alpha = 0.7) +
     lshtm_theme()
 }

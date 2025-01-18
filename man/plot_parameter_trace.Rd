@@ -4,10 +4,12 @@
 \alias{plot_parameter_trace}
 \title{Plot the parameter traces from a raw EpiFusion object}
 \usage{
-plot_parameter_trace(raw_epifusion)
+plot_parameter_trace(raw_epifusion, type = "all")
 }
 \arguments{
 \item{raw_epifusion}{raw epifusion object}
+
+\item{type}{type of parameters to plot, i.e. all parameters ("all"), parameters that are constant across the time series ("constant"), or time-varying parameters that have been inferred in piecewise constant intervals with time-variant priors ("timevar")}
 }
 \description{
 T

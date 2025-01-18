@@ -7,7 +7,7 @@
 lshtm_theme <- function() {
   theme(
     # add border 1)
-    panel.border = element_rect(colour = "#01454f", fill = NA, size = 0.5),
+    panel.border = element_rect(colour = "#01454f", fill = NA, linewidth = 0.5),
     # color background 2)
     panel.background = element_rect(fill = "white"),
     # modify grid 3)
@@ -24,7 +24,7 @@ lshtm_theme <- function() {
     strip.text.x = element_text(colour = "white"),
     strip.text.y = element_text(colour = "white"),
     strip.background = element_rect(
-      color="#01454f", fill="#01454f", size=1.5, linetype="solid"
+      color="#01454f", fill="#01454f", linewidth=1.5, linetype="solid"
     ),
     legend.position = "bottom",
     legend.title = element_text(colour = "#01454f", face = "bold"),
