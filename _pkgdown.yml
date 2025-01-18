@@ -14,7 +14,9 @@ pkgdown:
         - text: "Reference"
           href: reference/index.html
         - text: "Articles"
-          href: articles/index.html
+          menu:
+            - text: "EpiFusion XML Explained"
+              href: articles/epifusion_xml.html
       right:
         - text: "GitHub"
           href: https://github.com/yourusername/EpiFusionUtilities  # Replace with your actual repo URL
@@ -61,15 +63,14 @@ reference:
     contents:
       - calculate_daily_infections
 
-articles:
-  - title: "Articles"
-    contents:
-      - articles/epifusion_xml.Rmd
-
 # Template customization
 template:
   params:
     bootswatch: flatly  # Change theme (e.g., cerulean, flatly, yeti)
 
 build:
+  articles:
+    - title: "Articles"
+      contents:
+        - articles/epifusion_xml.Rmd
 
