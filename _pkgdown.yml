@@ -64,7 +64,7 @@ reference:
 articles:
   - title: "Articles"
     contents:
-      - "articles/epifusion_xml.Rmd"
+      - articles/epifusion_xml.Rmd
 
 # Template customization
 template:
