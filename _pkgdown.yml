@@ -19,9 +19,9 @@ pkgdown:
               href: articles/epifusion_xml.html
       right:
         - text: "GitHub"
-          href: https://github.com/yourusername/EpiFusionUtilities  # Replace with your actual repo URL
-  url: https://ciarajudge.github.io/EpiFusionUtilities  # Replace with your actual site URL
-  destination: docs  # Output directory for the built site
+          href: https://github.com/ciarajudge/EpiFusionUtilities
+  url: https://ciarajudge.github.io/EpiFusionUtilities
+  destination: docs
 
 # Customize the homepage
 home:
@@ -63,14 +63,16 @@ reference:
     contents:
       - calculate_daily_infections
 
+articles:
+  - title: "Articles"
+    contents:
+      - articles/epifusion_xml.Rmd
+
 # Template customization
 template:
   params:
     bootswatch: flatly  # Change theme (e.g., cerulean, flatly, yeti)
 
 build:
-  articles:
-    - title: "Articles"
-      contents:
-        - articles/epifusion_xml.Rmd
+
 
