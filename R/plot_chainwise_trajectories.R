@@ -78,6 +78,9 @@ plot_chainwise_trajectories <- function(raw_epifusion, burn_in, type = NA) {
     Lower66_CumulativeInfections = HDInterval::hdi(cuminfection_trajectory_posterior, 0.66)[1,]
     Upper66_CumulativeInfections = HDInterval::hdi(cuminfection_trajectory_posterior, 0.66)[2,]
 
+    if (mean(acceptance[[i]][discard:raw_epifusion$samples_per_chain]) == 0) {
+      print(paste0("WARNING: Chain ", i, " got stuck, with an acceptance rate of 0.0."))
+    }
     stuck = ifelse(mean(acceptance[[i]][discard:raw_epifusion$samples_per_chain]) == 0, "YES", "NO")
 
     tempdf <- data.frame(Time = seq(1, length(Mean_Infected)),
