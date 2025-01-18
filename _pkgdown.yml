@@ -61,10 +61,10 @@ reference:
     contents:
       - calculate_daily_infections
 
-# News section (for NEWS.md or inst/NEWS.md)
-#news:
-#  one_page: true
-#  title: "Changelog"
+articles:
+  - title: "Articles"
+    contents:
+      - "articles/epifusion_xml.Rmd"
 
 # Template customization
 template:
@@ -72,7 +72,4 @@ template:
     bootswatch: flatly  # Change theme (e.g., cerulean, flatly, yeti)
 
 build:
-  articles:
-    - title: "Articles"
-      contents:
-        - articles
+
