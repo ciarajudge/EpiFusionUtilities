@@ -44,7 +44,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">plot_parameter_trace</span><span class="op">(</span><span class="va">raw_epifusion</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">plot_parameter_trace</span><span class="op">(</span><span class="va">raw_epifusion</span>, type <span class="op">=</span> <span class="st">"all"</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -53,6 +53,10 @@
 
 <dl><dt id="arg-raw-epifusion">raw_epifusion<a class="anchor" aria-label="anchor" href="#arg-raw-epifusion"></a></dt>
 <dd><p>raw epifusion object</p></dd>
+
+
+<dt id="arg-type">type<a class="anchor" aria-label="anchor" href="#arg-type"></a></dt>
+<dd><p>type of parameters to plot, i.e. all parameters ("all"), parameters that are constant across the time series ("constant"), or time-varying parameters that have been inferred in piecewise constant intervals with time-variant priors ("timevar")</p></dd>
 
 </dl></div>
 
